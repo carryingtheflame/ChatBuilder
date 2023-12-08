@@ -12,10 +12,14 @@
 1. Click the appropriate conversation stage.
 2. To add blue or green text to the composition field at the bottom, click on that text.
 3. Edit the composition field as desired.
-4. To cut your composed text, either:
-    1. Click the scissors button (✂️), or
-    2. Press the Enter key.
+4. To cut your composed text, you may:
+    1. Click the scissors button (✂️).
+    2. Hold down the Control (Ctrl) key, then press the X key.
+    3. Hold down the Command (⌘) key, then press the X key (Mac only).
+    4. Press the Enter key.
 5. Paste the text into your chat app.
+
+The keyboard shortcuts do not require you to first click into the composition field.
 
 
 ## Troubleshooting

@@ -21,6 +21,14 @@ window.onload = function() {
     if (event.key == "Enter") {
         copyAndClearCompositionField();
     }
+    // Bind Ctrl-X to the copy and clear text function (Windows, Linux)
+    if (event.ctrlKey && event.code === 'KeyX') {
+        copyAndClearCompositionField();
+    }
+    // Bind Cmd-X to the copy and clear text function (Mac)
+    if (event.metaKey && event.code === 'KeyX') {
+      copyAndClearCompositionField();
+  }
   });
 
 };
