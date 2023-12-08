@@ -30,8 +30,9 @@ No worries, the text is probably still on your clipboard. Simply paste it using 
     1. Right click the composition field.
     2. Click "Paste."
 3. Option 3
-    1. Hold down the Control key (Windows and Linux) or Command key (Mac).
-    2. Press the V key.
+    1. Windows or Linux: Hold down the Control key.
+    2. Mac: Hold down the Command key.
+    3. Press the V key.
 
 ### Button Emoticon Not Displaying Correctly
 If the scissors button label (✂️) is showing up as odd characters instead of as an emoticon, change the character set of your browser to UTF-8:
