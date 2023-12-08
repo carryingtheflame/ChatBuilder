@@ -11,7 +11,7 @@
 ## Troubleshooting
 
 ### Button Label Not Displaying Correctly
-If the button label is showing up as odd characters instead of as emoji, change the character set of your browser to UTF-8. 
+If the button label (✂️) is showing up as odd characters instead of as emoji, change the character set of your browser to UTF-8. 
 
 Other issues? Write me at <carryingtheflame@protonmail.com>.
 
