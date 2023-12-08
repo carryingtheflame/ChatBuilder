@@ -12,7 +12,9 @@
 1. Click the appropriate conversation stage.
 2. To add blue or green text to the composition field at the bottom, click on that text.
 3. Edit the composition field as desired.
-4. To cut your composed text, click the scissors button (✂️) or press the Enter key.
+4. To cut your composed text, either:
+    1. Click the scissors button (✂️) or 
+    2. Press the Enter key.
 5. Paste the text into your chat app.
 
 
@@ -20,8 +22,8 @@
 
 ### Cut Text Too Soon
 No worries, the text is probably still on your clipboard. Simply paste it using one of these options:
-1. Click in the compositin field and select Edit > Paste.
-1. Right clicking in the composition field and selecting Paste.
+1. Click in the compositin field and click Edit > Paste.
+1. Right click the composition field and click Paste.
 3. Hold down the Control key (Windows and Linux) or Command key (Mac) and then tap the V key.
 
 ### Button Label Not Displaying Correctly
