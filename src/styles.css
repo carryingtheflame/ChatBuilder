@@ -77,11 +77,12 @@ h3{
 /* Stage Info Cards hidden by default */ 
 .stageInfoCards{
   display: none;
+  padding-bottom: 5em;
 }
 
 /* Copyable bits of text */ 
 .copyables{
-  display: inline;
+  display: inline-block;
   cursor: pointer;
   border: 1px dotted CornflowerBlue;
   border-radius: 0.25em;
@@ -90,6 +91,7 @@ h3{
   padding-right: 0.125em;
   padding-bottom: 0.125em;
   user-select: none;
+  margin-bottom: 0.25em;
 }
 
 /* This is for the quick-copy phrases */
@@ -104,7 +106,7 @@ h3{
 
 /* Random text pickers */ 
 .randomables{
-  display: inline;
+  display: inline-block;
   cursor: pointer;
   border: 1px dotted CornflowerBlue;
   border-radius: 0.25em;
@@ -113,6 +115,7 @@ h3{
   padding-right: 0.125em;
   padding-bottom: 0.125em;
   user-select: none;
+  margin-bottom: 0.25em;
 }
 
 /* This is for the quick-copy phrases */
@@ -127,7 +130,7 @@ h3{
 
 /* Copyable bits of text */ 
 .manuals{
-  display: inline;
+  display: inline-block;
   cursor: not-allowed;
   border: 1px dotted gray;
   border-radius: 0.25em;
@@ -136,4 +139,5 @@ h3{
   padding-right: 0.125em;
   padding-bottom: 0.125em;
   user-select: none;
+  margin-bottom: 0.25em;
 }
