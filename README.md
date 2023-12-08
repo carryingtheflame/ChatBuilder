@@ -3,9 +3,9 @@
 
 
 ## Installation
-1. Download this repository as a ZIP file.
-2. Unzip it.
-3. Open the resulting folder and open index.html in Chrome.
+1. Click the green button labeled Code up top, then click "Download ZIP"
+2. Unzip the folder.
+3. Open Chat Builder.html in Google Chrome.
 
 
 ## Troubleshooting
