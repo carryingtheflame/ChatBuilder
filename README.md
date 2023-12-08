@@ -19,7 +19,7 @@
 ## Troubleshooting
 
 ### Button Label Not Displaying Correctly
-If the scissors button label (✂️) is showing up as odd characters instead of as emoji, change the character set of your browser to UTF-8.
+If the scissors button label (✂️) is showing up as odd characters instead of as an emoticon, change the character set of your browser to UTF-8.
 
 Need clarification, having other issues, or have ideas for improvement? Write me at <carryingtheflame@protonmail.com>.
 
