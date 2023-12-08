@@ -57,10 +57,20 @@ If the scissors button label (✂️) is showing up as odd characters instead of
 
 Chrome and Edge do not allow the user to change the character encoding. This app was developed for Chrome, so if you are having this problem with Chrome, please write to me and let me know. 
 
-Need clarification, having other issues, or have ideas for improvement? Write me at <carryingtheflame@protonmail.com>.
+Need clarification or having other issues? Write me at <carryingtheflame@protonmail.com>.
 
 
 ## Development Notes
+
+### Development Stage
+This app is under construction. Planned features include:
+- Stages following Establishing Rapport
+- Undo function
+- Link to Github page
+- Instructions on how to more permanently "install" app
+- Button to open a new instance of ChatBuilder
+
+Have ideas for improvement? Write me at <carryingtheflame@protonmail.com>
 
 ### Privacy and Security
 Security and privacy are paramount to chat services, and this codebase was designed to support privacy and security goals in a few ways.
