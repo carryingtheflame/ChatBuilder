@@ -22,4 +22,4 @@ Security and privacy are paramount to chat services, and this codebase was desig
 
 First, this code runs entirely on the user's computer, in their Web browser, ensuring there are no marginal risks associated with sending data over the Internet.
 
-Second, this code does not rely on external libraries. No external libraries are dynamically linked from the codebase, or even copied into the codebase. This eliminates risks associated with dynamically linked libraries which can be compromised or intercepted in transit, as well as risks associated with the use of external libraries which send private data to advertising agencies such as Meta, Google, or Twitter.
+Second, this code does not rely on external libraries--they are not dynamically linked or copied in. This eliminates risks associated with external libraries which send private data to advertising agencies such as Facebook [true story](https://www.statnews.com/2023/06/13/suicide-hotlines-988-data-privacy-facebook/).
