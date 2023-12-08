@@ -10,7 +10,7 @@ div{
   /*border:1px solid blue;*/
   margin:0em;
 }
-
+/*
 h1{
   font-size: 1.5em;
 }
@@ -21,6 +21,10 @@ h2{
 
 h3{
   font-size: 1em;
+}
+*/
+h4{
+  font-style: italic;
 }
 
 .pageTitle{
@@ -91,7 +95,8 @@ h3{
   padding-right: 0.125em;
   padding-bottom: 0.125em;
   user-select: none;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.5em;
+  margin-right: 0.125em;
 }
 
 /* This is for the quick-copy phrases */
@@ -115,7 +120,8 @@ h3{
   padding-right: 0.125em;
   padding-bottom: 0.125em;
   user-select: none;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.5em;
+  margin-right: 0.125em;
 }
 
 /* This is for the quick-copy phrases */
@@ -139,5 +145,6 @@ h3{
   padding-right: 0.125em;
   padding-bottom: 0.125em;
   user-select: none;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.5em;
+  margin-right: 0.125em;
 }
