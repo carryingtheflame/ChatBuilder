@@ -1,0 +1,126 @@
+/* Stylesheet for Chat Builder */
+
+/* General Items */
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+  
+div{
+  /*border:1px solid blue;*/
+  margin:0em;
+}
+
+h1{
+  font-size: 1.5em;
+}
+
+h2{
+  font-size: 1.25em;
+}
+
+h3{
+  font-size: 1em;
+}
+
+.pageTitle{
+  display: inline;
+}
+
+
+/* Composition Panel */
+
+#compositionPanel{
+  position: fixed;
+  bottom: 0px;
+  background-color: white;
+  border: 1px solid black;
+  padding:1em;
+  width:95%;
+  filter: drop-shadow(gray 0em 0em 0.25em);
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+#copiedConfirmationText{
+  visibility: hidden;
+  color:green;
+}
+
+
+/* Radio Button Tabs */
+/* Custom implementation for security */
+
+/* Just hide the actual radio buttons */ 
+.radioTab{
+  display: none;
+}
+
+/* These are the actual tab ends */ 
+.labelTab{
+  cursor:pointer;
+  display: inline-block;
+  padding: 0.5em;
+  margin:0;
+  margin-inline:-0.16em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+
+/* Reference Panel */
+/* Contains stage info cards */
+.referencePanelDivs{
+  margin:0em;
+}
+
+/* Stage Info Cards hidden by default */ 
+.stageInfoCards{
+  display: none;
+}
+
+/* Copyable bits of text */ 
+.copyables{
+  display: inline;
+  cursor: pointer;
+  border: 1px dotted CornflowerBlue;
+  border-radius: 0.25em;
+  background-color: aliceblue;
+  padding-left: 0.125em;
+  padding-right: 0.125em;
+  padding-bottom: 0.125em;
+  user-select: none;
+}
+
+/* This is for the quick-copy phrases */
+.copyables:hover{
+  background-color: skyblue;
+}
+
+/* This is for the moment in which they're being clicked */
+.copyables:active{
+  background-color: aquamarine;
+}
+
+/* Random text pickers */ 
+.randomables{
+  display: inline;
+  cursor: pointer;
+  border: 1px dotted CornflowerBlue;
+  border-radius: 0.25em;
+  background-color: honeydew;
+  padding-left: 0.125em;
+  padding-right: 0.125em;
+  padding-bottom: 0.125em;
+  user-select: none;
+}
+
+/* This is for the quick-copy phrases */
+.randomables:hover{
+  background-color: lightgreen;
+}
+
+/* This is for the moment in which they're being clicked */
+.randomables:active{
+  background-color: chartreuse;
+}

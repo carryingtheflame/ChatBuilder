@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+    <head>
+        <!--script src="jquery-3.7.1.min.js"></script-->
+        <script src="src/script.js"></script>
+        <link rel="stylesheet" href="src/styles.css">
+    </head>
+    
+    <div>
+        <h1 class="pageTitle">Chat Builder Basic</h1>
+        <div class="pageTitle"><small>v0.0</small></div>
+    </div>
+
+    <div id="compositionPanel">
+        <!-- The text field -->
+        <!-- TODO: I want this to resize dynamically so it can be inline with button and confirmation. -->
+        <input type="text" size="115" value="" id="compositionField" tabindex="1">
+
+        <!-- The button used to copy the text -->
+        <!--button onclick="copyCompositionField()" tabindex="2" id="copyTextButton" title="Copy Text">✂️</button-->
+
+        <!-- The button used to clear the text -->
+        <!--button onclick="clearCompositionField()" tabindex="3" id="clearTextButton" title="Clear Text">❎</button-->
+
+        <!-- A convenience button for copying and then clearing the text -->
+        <button onclick="copyAndClearCompositionField()" tabindex="4" id="copyAndClearTextButton" title="Cuts text from bar. Use your Enter key as a shortcut.">✂️</button>
+
+        <!-- This label confirms the text has been copied -->
+        <label for="copyAndClearTextButton" id="copiedConfirmationText" title="Text Copied">✅</label>
+    </div>
+    
+    <div>
+        <div class="referencePanelDivs">
+            
+            <!-- Tabs -->
+            <input type="radio" class="radioTab" name="stageModelSelector" id="establishingRapport" value="establishingRapport" onclick="showStageInfoCard('establishingRapport')" checked="true" />
+            <label class="labelTab" for="establishingRapport" id="establishingRapportTab">Establishing Rapport</label><!--br /-->
+
+            <input type="radio" class="radioTab" name="stageModelSelector" id="riskAssessment" value="riskAssessment" onclick="showStageInfoCard('riskAssessment')" />
+            <label class="labelTab" for="riskAssessment" id="riskAssessmentTab">Risk Assessment</label><!--br /-->
+
+            <input type="radio" class="radioTab" name="stageModelSelector" id="gatheringInformation" value="gatheringInformation" onclick="showStageInfoCard('gatheringInformation')" />
+            <label class="labelTab" for="gatheringInformation" id="gatheringInformationTab">Gathering Information</label><!--br /-->
+
+            <input type="radio" class="radioTab" name="stageModelSelector" id="exploringAlternatives" value="exploringAlternatives" onclick="showStageInfoCard('exploringAlternatives')" />
+            <label class="labelTab" for="exploringAlternatives" id="exploringAlternativesTab">Exploring Alternatives</label><!--br /-->
+
+            <input type="radio" class="radioTab" name="stageModelSelector" id="riskReassessment" value="riskReassessment" onclick="showStageInfoCard('riskReassessment')" />
+            <label class="labelTab" for="riskReassessment" id="riskReassessmentTab">Risk Reassessment</label><!--br /-->
+            
+            <input type="radio" class="radioTab" name="stageModelSelector" id="closure" value="closure" onclick="showStageInfoCard('closure')" />
+            <label class="labelTab" for="closure" id="closureTab">Closure</label><!--br /-->
+
+        </div>
+
+        <div class="referencePanelDivs" id="dynamicReference">
+
+            <p>
+                TODO: add texts, notes, and interactive graphics to each tab here
+            </p>
+            
+            <div class="stageInfoCards" id="establishingRapportInfo">
+                <h2>Establishing Rapport</h2>
+
+                <p>
+                    <div class="copyables">Hello there my name is</div>
+                    <div class="randomables" id="randomName">[random name]</div>
+                    <div class="copyables">. Thank you for reaching out.</div>
+                </p>
+
+                <p class="copyables">
+                    What would you like to talk about today?
+                </p>
+
+            </div>
+
+            <div class="stageInfoCards" id="riskAssessmentInfo">
+                <h2>Risk Assessment</h2>
+            </div>
+
+            <div class="stageInfoCards" id="gatheringInformationInfo">
+                <h2>Gathering Information</h2>
+            </div>
+
+            <div class="stageInfoCards" id="exploringAlternativesInfo">
+                <h2>Exploring Alternatives</h2>
+            </div>
+
+            <div class="stageInfoCards" id="riskReassessmentInfo">
+                <h2>Risk Reassessment</h2>
+                <p>
+                    <i>Only for High and Immediate Risk contacts.</i>
+                </p>
+            </div>
+
+            <div class="stageInfoCards" id="closureInfo">
+                <h2>Closure</h2>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</html>
+
