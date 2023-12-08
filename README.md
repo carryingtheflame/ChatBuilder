@@ -33,8 +33,8 @@ No worries, the text is probably still on your clipboard. Simply paste it using 
     1. Hold down the Control key (Windows and Linux) or Command key (Mac).
     2. Press the V key.
 
-### Button Label Not Displaying Correctly
-If the scissors button label (✂️) is showing up as odd characters instead of as an emoticon, change the character set of your browser to UTF-8.
+### Button Emoticon Not Displaying Correctly
+If the scissors button label (✂️) is showing up as odd characters instead of as an emoticon, change the character set of your browser to UTF-8:
 
 - Firefox
     1. Click "View" from the top of your browser window.
