@@ -124,3 +124,16 @@ h3{
 .randomables:active{
   background-color: chartreuse;
 }
+
+/* Copyable bits of text */ 
+.manuals{
+  display: inline;
+  cursor: not-allowed;
+  border: 1px dotted gray;
+  border-radius: 0.25em;
+  background-color: gainsboro;
+  padding-left: 0.125em;
+  padding-right: 0.125em;
+  padding-bottom: 0.125em;
+  user-select: none;
+}

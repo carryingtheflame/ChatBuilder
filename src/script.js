@@ -139,7 +139,7 @@ function initializeRandomables() {
 
 // Random name picker.
 function randomNamePickerClicked(){
-  const names = ["January", "February", "March", "April", "May", "June", "July"];
+  const names = ["Summer", "Ali", "Olive", "Jamie", "Alex", "Blake", "Drew", "Jordan", "Taylor", "Jul", "Emerson", "Charli", "Ryan", "Riley", "Bobbi", "Ash", "Jo", "Finley", "Jessie", "Skyler", "Frankie", "Peyton", "Dakota", "Hunter", "Elm", "Hawthorn", "Avery", "Lennox", "Robin", "Max", "Sam", "Jay", "River", "Rory", "Harbor", "Cam", "Rowan", "Marlowe"];
   const pickedName = names[Math.floor(Math.random() * names.length)];
   appendToCompositionField(pickedName);
 }
