@@ -2,7 +2,7 @@
  Structures chat service work.
 
 
-## Installation
+## How to Install
 1. Click the green button labeled Code up top, then click "Download ZIP."
 2. Unzip the folder.
 3. Open Chat Builder.html in Google Chrome.
