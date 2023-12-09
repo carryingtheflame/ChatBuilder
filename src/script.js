@@ -41,12 +41,12 @@ function appendToCompositionField(text) {
   lastChar = fieldValue.charAt(fieldValue.length - 1)
 
   // Add a space if a bunch of conditions are met:
-  /*if(fieldValue.length != 0 && // The field is not empty
+  if(fieldValue.length != 0 && // The field is not empty
       lastChar != " " &&       // The last character in the field is not a space
       text.charAt(0) != "." && // The new text does not start with a period
       text.charAt(0) != ","){  // The new text does not start with a comma
-    document.getElementById("compositionField").value += " ";  
-  }*/
+    fieldValue += " ";  
+  }
 
   // Append the desired text, followed by a space. 
   fieldValue += text + " ";
