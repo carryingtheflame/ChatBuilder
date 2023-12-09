@@ -1,4 +1,4 @@
-# ChatBuilder
+# ChatBuilder v0.0
  Structures chat service work.
 
 
@@ -64,11 +64,8 @@ Need clarification or having other issues? Write me at <carryingtheflame@protonm
 
 ### Development Stage
 This app is under construction. Planned features include:
-- Stages following Establishing Rapport
 - Undo function
-- Link to Github page
 - Instructions on how to more permanently "install" app
-- Button to open a new instance of ChatBuilder
 
 Have ideas for improvement? Write me at <carryingtheflame@protonmail.com>
 

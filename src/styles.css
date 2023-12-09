@@ -10,6 +10,7 @@ div{
   /*border:1px solid blue;*/
   margin:0em;
 }
+
 /*
 h1{
   font-size: 1.5em;
@@ -30,6 +31,28 @@ h4{
 .pageTitle{
   display: inline;
 }
+
+.rightAlignedTexts{
+  float: right;
+}
+
+.hugeTexts{
+  font-size: 2em;
+}
+
+.crazyLinks{
+  background-color: azure;
+  border: 1px solid gray;
+  border-radius: 0.25em;
+  padding:0.05em;
+}
+.crazyLinks:hover{
+  background-color: lightblue;
+}
+.crazyLinks:active{
+  background-color: aquamarine;
+}
+
 
 
 /* Composition Panel */
