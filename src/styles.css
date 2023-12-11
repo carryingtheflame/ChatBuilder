@@ -36,23 +36,6 @@ h4{
   float: right;
 }
 
-.hugeTexts{
-  font-size: 2em;
-}
-
-.crazyLinks{
-  background-color: azure;
-  border: 1px solid gray;
-  border-radius: 0.25em;
-  padding:0.05em;
-}
-.crazyLinks:hover{
-  background-color: lightblue;
-}
-.crazyLinks:active{
-  background-color: aquamarine;
-}
-
 
 
 /* Composition Panel */
@@ -124,7 +107,8 @@ h4{
 
 /* This is for the quick-copy phrases */
 .copyables:hover{
-  background-color: skyblue;
+  background-color: royalblue;
+  color:white;
 }
 
 /* This is for the moment in which they're being clicked */
@@ -132,11 +116,38 @@ h4{
   background-color: aquamarine;
 }
 
+/* Decorative styling for choosable bits of text */ 
+.choosables{
+  display: inline-block;
+  cursor: pointer;
+  border: 1px dotted darkorchid;
+  border-radius: 0.25em;
+  background-color: lavender;
+  padding-left: 0.125em;
+  padding-right: 0.125em;
+  padding-bottom: 0.125em;
+  user-select: none;
+  margin-bottom: 0.5em;
+  margin-right: 0.125em;
+}
+
+/* This is for the quick-copy phrases */
+.choosables:hover{
+  background-color: mediumslateblue;
+}
+
+/* This is for the moment in which they're being clicked */
+.choosables:active{
+  background-color: fuchsia;
+}
+
+
+
 /* Random text pickers */ 
 .randomables{
   display: inline-block;
   cursor: pointer;
-  border: 1px dotted CornflowerBlue;
+  border: 1px dotted forestgreen;
   border-radius: 0.25em;
   background-color: honeydew;
   padding-left: 0.125em;
@@ -149,7 +160,8 @@ h4{
 
 /* This is for the quick-copy phrases */
 .randomables:hover{
-  background-color: lightgreen;
+  background-color: seagreen;
+  color:white;
 }
 
 /* This is for the moment in which they're being clicked */

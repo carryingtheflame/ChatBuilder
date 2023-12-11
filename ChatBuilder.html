@@ -13,8 +13,10 @@
                 v0.0 
                 <a title="Link to project's page on Github" href="https://github.com/carryingtheflame/ChatBuilder">Check for Updates</a>
             </small>
-            <div class="rightAlignedTexts hugeTexts crazyLinks">
-                <a href title="Opens another instance of ChatBuilder" target="_blank">👯</a>
+            <div class="rightAlignedTexts">
+                <small>
+                    <a href title="Opens another instance of ChatBuilder" target="_blank">Open another ChatBuilder</a>
+                </small>
             </div>
         </div>
     </div>
@@ -128,17 +130,17 @@
                 <h3>Privacy Concerns</h3>
                 <p>
                     <div class="copyables">I can understand why you might not be comfortable sharing</div>[
-                    <div class="copyables">your age</div>/
-                    <div class="copyables">your city</div>/
-                    <div class="copyables">your state</div>]
+                    <div class="copyables choosables">your age</div>/
+                    <div class="copyables choosables">your city</div>/
+                    <div class="copyables choosables">your state</div>]
                     <div class="copyables">. I ask because it helps me locate resources that are</div>[
-                    <div class="copyables">age-appropriate.</div>/
-                    <div class="copyables">in your area.</div>]
+                    <div class="copyables choosables">age-appropriate.</div>/
+                    <div class="copyables  choosables">in your area.</div>]
                 </p>
                 <p>
                     <div class="copyables">That's okay. This information helps me find resources that are</div>[
-                    <div class="copyables">age</div>/
-                    <div class="copyables">location</div>]
+                    <div class="copyables choosables">age</div>/
+                    <div class="copyables choosables">location</div>]
                     <div class="copyables">specific. You don't need to share anything you're not comfortable sharing.</div>
                 </p>
 
@@ -172,15 +174,16 @@
                 
                     <p>
                         <div class="copyables">Thanks for letting me know. Where</div>
-                        [<div class="copyables">is the</div>/<div class="copyables">are the</div>]
+                        [<div class="copyables choosables">is the</div>/
+                        <div class="copyables choosables">are the</div>]
                         <div class="manuals">[means]</div>
                         <div class="copyables">right now?</div>
                     </p>
-                    <p>
-                        Safety planning: if present, remove; else, request notice of thoughts to access means.
-                    </p>
                 </label>
                 <input type="radio" name="riskAssessmentBug" id="meansAccessible" />
+                <p>
+                    <i>Safety planning: if present, remove; else, request notice of thoughts to access means.</i>
+                </p>
 
                 <label for="inProgress">
                     <h3>In Progress?</h3>
@@ -193,7 +196,9 @@
                     </p>
                 </label>
                 <input type="radio" name="riskAssessmentBug" id="inProgress"/><br/>
-                <i>If attempt is in progress, initiate intervention immediately, then continue assessment.</i>
+                <p>
+                    <i>If attempt is in progress, initiate intervention immediately, then continue assessment.</i>
+                </p>
 
                 <label for="when">
                     <h3>When?</h3>
@@ -291,7 +296,11 @@
                 <div class="copyables">What has identifying as</div><div class="manuals">_____</div><div class="copyables">been like for you?</div><br/>
                 <div class="copyables">What brought on these feelings of</div><br/>
                 <div class="copyables">What has been making you feel like</div><br/>
-                <div class="copyables">What was</div><div class="manuals">_____</div><div class="copyables"> like for you</div>[<div class="copyables">in the past?</div>/<div class="copyables">before this happened?</div>]<br/>
+                
+                <div class="copyables">What was</div><div class="manuals">_____</div><div class="copyables"> like for you</div>[
+                <div class="copyables choosables">in the past?</div>/
+                <div class="copyables choosables">before this happened?</div>]<br/>
+
                 <div class="copyables">You mentioned feeling scared about</div><br/>
                 <div class="copyables">What are your concerns about</div><br/>
                 <div class="copyables">What goes through your mind when you</div><br/>
@@ -427,9 +436,9 @@
                 <h4>Clarifying</h4>
                 <div class="copyables">When you say</div>
                 [
-                <div class="copyables">you're fine</div>
+                <div class="copyables choosables">you're fine</div>
                 /
-                <div class="copyables">you feel better</div>
+                <div class="copyables choosables">you feel better</div>
                 /
                 <div class="manuals">[reflect language]</div>
                 ]
@@ -465,8 +474,13 @@
                 
                 <h4>Attempting to Reengage</h4>
                 <i>Send this after 2 to 3 minutes of silence.</i><br/><br/>
-                <div class="copyables">Hey, it's been a few minutes and I just wanted to check in. If you're still there and would like to continue, please send a reply.</div><br/>
+                <div class="copyables">Hey, it's been a few minutes and I just wanted to check in. If you're still there and would like to continue, please send a reply.</div>
+                <br/>
                 <div class="copyables">I haven't heard from you in a bit, do you still want to chat with me?</div>
+                <br/>
+
+                <!-- O.C. -->
+                <div class="copyables">Hey, just checking in. Is now a good time to chat?</div>
 
                 <h4>Closing Silent Chat</h4>
                 <i>If your welcome message was greeted with silence, send 5 minutes after your welcome message.</i><br/>
