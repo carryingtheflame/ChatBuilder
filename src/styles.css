@@ -107,7 +107,7 @@ h4{
 
 /* This is for the quick-copy phrases */
 .copyables:hover{
-  background-color: royalblue;
+  background-color: dodgerblue;
   color:white;
 }
 
@@ -160,7 +160,7 @@ h4{
 
 /* This is for the quick-copy phrases */
 .randomables:hover{
-  background-color: seagreen;
+  background-color: limegreen;
   color:white;
 }
 
