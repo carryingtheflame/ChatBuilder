@@ -163,7 +163,7 @@ h4{
   background-color: chartreuse;
 }
 
-/* Copyable bits of text */ 
+/* Non-copyable bits of text */ 
 .manuals{
   display: inline-block;
   cursor: not-allowed;

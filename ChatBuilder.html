@@ -10,7 +10,7 @@
         <h1 class="pageTitle">Chat Builder Basic</h1>
         <div class="pageTitle">
             <small>
-                v0.0 
+                v0.1 
                 <a title="Link to project's page on Github" href="https://github.com/carryingtheflame/ChatBuilder">Check for Updates</a>
             </small>
             <div class="rightAlignedTexts">
@@ -44,22 +44,25 @@
             
             <!-- Tabs -->
             <input type="radio" class="radioTab" name="stageModelSelector" id="establishingRapport" value="establishingRapport" onclick="showStageInfoCard('establishingRapport')" checked="true" />
-            <label class="labelTab" for="establishingRapport" id="establishingRapportTab">Establishing Rapport</label><!--br /-->
+            <label class="labelTab" for="establishingRapport" id="establishingRapportTab">Open</label><!--br /-->
 
             <input type="radio" class="radioTab" name="stageModelSelector" id="riskAssessment" value="riskAssessment" onclick="showStageInfoCard('riskAssessment')" />
-            <label class="labelTab" for="riskAssessment" id="riskAssessmentTab">Risk Assessment</label><!--br /-->
+            <label class="labelTab" for="riskAssessment" id="riskAssessmentTab">Assess</label><!--br /-->
 
             <input type="radio" class="radioTab" name="stageModelSelector" id="gatheringInformation" value="gatheringInformation" onclick="showStageInfoCard('gatheringInformation')" />
-            <label class="labelTab" for="gatheringInformation" id="gatheringInformationTab">Gathering Information</label><!--br /-->
+            <label class="labelTab" for="gatheringInformation" id="gatheringInformationTab">Gather Info</label><!--br /-->
 
             <input type="radio" class="radioTab" name="stageModelSelector" id="exploringAlternatives" value="exploringAlternatives" onclick="showStageInfoCard('exploringAlternatives')" />
-            <label class="labelTab" for="exploringAlternatives" id="exploringAlternativesTab">Exploring Alternatives</label><!--br /-->
+            <label class="labelTab" for="exploringAlternatives" id="exploringAlternativesTab">Explore Alternatives</label><!--br /-->
 
             <input type="radio" class="radioTab" name="stageModelSelector" id="riskReassessment" value="riskReassessment" onclick="showStageInfoCard('riskReassessment')" />
-            <label class="labelTab" for="riskReassessment" id="riskReassessmentTab">Risk Reassessment</label><!--br /-->
+            <label class="labelTab" for="riskReassessment" id="riskReassessmentTab">Reassess</label><!--br /-->
             
             <input type="radio" class="radioTab" name="stageModelSelector" id="closure" value="closure" onclick="showStageInfoCard('closure')" />
-            <label class="labelTab" for="closure" id="closureTab">Closure</label><!--br /-->
+            <label class="labelTab" for="closure" id="closureTab">Close</label><!--br /-->
+
+            <input type="radio" class="radioTab" name="stageModelSelector" id="disclosure" value="disclosure" onclick="showStageInfoCard('disclosure')" />
+            <label class="labelTab" for="disclosure" id="disclosureTab">Discl*</label><!--br /-->
 
         </div>
 
@@ -510,13 +513,19 @@
                 
                 <h4>Attempting to Reengage</h4>
                 <i>Send this after 2 to 3 minutes of silence.</i><br/><br/>
-                <div class="copyables">Hey, it's been a few minutes and I just wanted to check in. If you're still there and would like to continue, please send a reply.</div>
+                                
+                <!-- O.C. -->
+                <div class="copyables">Hey, just checking in. Is now a good time to chat?</div>
                 <br/>
+
+                <div class="copyables">It's been a couple of minutes, and I'm wondering, are you still there?</div>
+                <br/>
+
                 <div class="copyables">I haven't heard from you in a bit, do you still want to chat with me?</div>
                 <br/>
 
-                <!-- O.C. -->
-                <div class="copyables">Hey, just checking in. Is now a good time to chat?</div>
+                <div class="copyables">Hey, it's been a few minutes and I just wanted to check in. If you're still there and would like to continue, please send a reply.</div>
+                
 
                 <h4>Closing Silent Chat</h4>
                 <i>If your welcome message was greeted with silence, send 5 minutes after your welcome message.</i><br/>
@@ -527,11 +536,40 @@
 
             </div>
 
+            <div class="stageInfoCards" id="disclosureInfo">
+                <h2>Discl*</h2>
+
+                <h3>Disclaimers</h3>
+
+                <div class="copyables">Here is a resource that you might find helpful for your situation.</div>
+                <div class="manuals">[Your org]</div>
+                <div class="copyables">does not endorse any information or views that you might find on the website.</div>
+                <br/>
+
+                <div class="copyables">Here is a resource that you might find helpful for your situation. Please note,</div>
+                <div class="manuals">[your org]</div>
+                <div class="copyables">is not affiliated with</div>
+                <div class="manuals">[resource]</div>
+                <div class="copyables">and does not endorse any information or views they may have available.
+                </div>
+                <br/>
+
+                <div class="copyables">Just as a disclaimer,</div>
+                <div class="manuals">[your org]</div>
+                <div class="copyables">not affiliated with this resource and can't endorse any information or views</div>
+                <div class="manuals">[resource]</div>
+                <div class="copyables">may have available. Here's the link:</div>
+                <div class="manuals">[link]</div>
+
+                <h3>Disclosures</h3>
+
+                <div class="copyables">It sounds like things are really rough at home right now, and I definitely want to hear more about that, but I also want to let you know that depending on what you share we may need to make a report to an agency in your area who is there to keep you safe. You can share as much or as little as you like. I'm here to listen.</div>
+
+
+
+            </div>
 
         </div>
     </div>
-
-
-
 </html>
 

@@ -62,6 +62,10 @@ Need clarification or having other issues? Write me at <carryingtheflame@protonm
 
 ## Development Notes
 
+### v0.1
+New Features:
+- Disclaimer and Disclosure tab
+
 ### Development Stage
 This app is under construction. Planned features include:
 - Undo function
