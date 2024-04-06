@@ -158,7 +158,7 @@ function showStageInfoCard(stage){
   labelTabList = document.getElementsByClassName("labelTab");
   for (var x = 0; x < labelTabList.length; x++) {
     labelTabList[x].style.border = "1px solid black";
-    labelTabList[x].style.boxShadow ="inset 0em -0.125em 0.4em gray";
+    labelTabList[x].style.boxShadow = "inset 0 -0.25em 0.5em -0.4em black" // "inset x-offset y-offset blur-radius spread-radius gray";
   }
 
   // Then restyle only the active tab to the foreground style
