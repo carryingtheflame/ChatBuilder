@@ -18,9 +18,9 @@ window.onload = function() {
   window.addEventListener('keydown', function (event) {
 
     // Bind the return key to the copy and clear text function
-    if (event.key == "Enter") {
+    /*if (event.key == "Enter") {
         copyAndClearCompositionField();
-    }
+    }*/
     // Bind Ctrl-X to the copy and clear text function (Windows, Linux)
     if (event.ctrlKey && event.code === 'KeyX') {
         copyAndClearCompositionField();
@@ -105,8 +105,8 @@ function copyCompositionField() {
 // Visually confirms that the text has been copied
 function visuallyConfirmTextCopied(){
   // First, show the text
-  document.getElementById("copiedConfirmationText").style.visibility = "visible";
-  //document.getElementById("copyAndClearTextButton").innerText = "✅";
+  //document.getElementById("copiedConfirmationText").style.visibility = "visible";
+  document.getElementById("copyAndClearTextButton").innerText = "✅";
 
   // Then, after a moment, switch the icon back
   window.setTimeout(disableCopyTextVisualConfirmation, 420.69);
@@ -114,8 +114,8 @@ function visuallyConfirmTextCopied(){
 
 // Disables the visual confirmation that text has been copied
 function disableCopyTextVisualConfirmation(){
-  document.getElementById("copiedConfirmationText").style.visibility = "hidden"
-  //document.getElementById("copyAndClearTextButton").innerText = "Copy and Clear";
+  //document.getElementById("copiedConfirmationText").style.visibility = "hidden"
+  document.getElementById("copyAndClearTextButton").innerText = "✂️";
   
 }
 
