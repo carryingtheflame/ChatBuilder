@@ -1,4 +1,4 @@
-# ChatBuilder v0.1
+# ChatBuilder v0.2
  Structures chat service work.
 
 
