@@ -62,6 +62,10 @@ Need clarification or having other issues? Write me at <carryingtheflame@protonm
 
 ## Development Notes
 
+### v0.2
+Changes:
+- Composition field is now a multi-line text area for ease of composition
+
 ### v0.1
 New Features:
 - Disclaimer and Disclosure tab
