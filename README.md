@@ -10,7 +10,7 @@
 
 ## How to Use
 1. Click the appropriate conversation stage.
-2. To add blue or green text to the composition field at the bottom, click on that text.
+2. To add colored text to the composition field at the bottom, click on that text.
 3. Edit the composition field as desired.
 4. To cut your composed text, you may:
     1. Click the scissors button (✂️).
