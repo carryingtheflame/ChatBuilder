@@ -163,17 +163,62 @@
             </div>
 
             <div class="stageInfoCards" id="riskAssessmentInfo">
-                <h2>Risk Assessment</h2>
+                <h2>Assess</h2>
 
-                <label for="transition">
-                <h3>Transitioning to Assessment</h3>
+                <label for="aat">
+                <h3>Ask About Thoughts</h3>
                 <p>
-                    <div class="copyables">I'm hearing that this has been a difficult time for you, with</div><div class="manuals">[issues]</div><div class="copyables">. With all of this going on, are you thinking of killing yourself?</div>
+                    <div class="copyables">I'm hearing that this has been a difficult time for you, with</div><div class="manuals">[issues]</div>
+                    <div class="copyables">. With all of this going on, have you had any thoughts of suicide in the past few days, including today?</div>
                 </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="transition" />
+                <input type="radio" name="riskAssessmentBug" id="aat" />
 
-                <h2>Yes Path</h2>
+                <label for="aah">
+                <h3>Ask About Harm</h3>
+                <p>
+                    <div class="copyables choosables">Okay.</div> /
+                    <div class="copyables choosables">Thank you for letting me know.</div> /
+                    <div class="copyables choosables">It can be so hard to deal with those thoughts.</div>
+                </p>
+                <p>
+                    <div class="copyables">Have you taken any action to harm yourself today?</div>
+                </p>
+                </label>
+                <input type="radio" name="riskAssessmentBug" id="aah" />
+
+                <label for="yth">
+                <h3>Follow Up</h3>
+                <h4>Yes to Question About Harm</h4>
+                <p>
+                    <div class="copyables">Thank you for letting me know about</div>
+                    <div class="manuals">[harm]</div>
+                    <div class="copyables">. Please tell me more about that.</div>
+                </p>
+                <p>
+                    <em>(Address any immediate harm and then assess fully)</em>
+                </p>
+                </label>
+                <input type="radio" name="riskAssessmentBug" id="yth" />
+
+                <label for="ynst">
+                <h4>Yes or Not Sure to Question About Thoughts</h4>
+                <p>
+                    <div class="copyables">Earlier you mentioned</div>
+                    <div class="copyables choosables">you weren't sure if</div>
+                    <div class="copyables">you were having thoughts of suicide. Do you have any plans to act on them?</div>
+                </p>
+                <p>
+                    <em>(If yes, assess fully.)</em>
+                </p>
+                </label>
+                <input type="radio" name="riskAssessmentBug" id="ynst" />
+
+                <p>
+                    <em>(If no to both questions, continue to gather info.)</em>
+                </p>
+
+                <h2>Assess Fully</h2>
                 
                 <label for="means">
                     <h3>Means in Mind?</h3>
