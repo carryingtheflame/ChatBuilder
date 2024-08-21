@@ -11,10 +11,17 @@ div{
   margin:0em;
 }
 
+h1{
+  color: navy;
+  font-size:1.2em;
+}
 
+h2{
+  color: darkblue;
+}
 
 h3{
-  color:darkblue;
+  color:steelblue;
 }
 
 h4{
@@ -22,14 +29,12 @@ h4{
   font-style: italic;
 }
 
-.pageTitle{
-  display: inline;
+.topright{
+  z-index: 10;  
+  position: absolute;
+  right: 0.5em;  
+  top: 1em;
 }
-
-.rightAlignedTexts{
-  float: right;
-}
-
 
 
 /* Composition Panel */
