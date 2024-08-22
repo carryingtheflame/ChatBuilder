@@ -23,7 +23,7 @@ window.onload = function() {
     }*/
     // Bind Ctrl-X to the copy and clear text function (Windows, Linux)
     if (event.ctrlKey && event.code === 'KeyX') {
-        copyAndClearCompositionField();
+      copyAndClearCompositionField();
     }
     // Bind Cmd-X to the copy and clear text function (Mac)
     if (event.metaKey && event.code === 'KeyX') {
@@ -73,6 +73,7 @@ function appendToCompositionField(text) {
 
 }
 
+// Copies the composition field text to clipboard, then clears the field.
 function copyAndClearCompositionField(){
 
   // Carry out the cut action only if the field is not empty (user error safeguard).
@@ -82,10 +83,12 @@ function copyAndClearCompositionField(){
   }
 }
 
+// Clears the text field.
 function clearCompositionField(text) {
   document.getElementById("compositionField").value = "";
 }
 
+// Copies the composition field text to clipboard
 function copyCompositionField() {
 
   // Get the text field
@@ -102,7 +105,7 @@ function copyCompositionField() {
   visuallyConfirmTextCopied();
 }
 
-// Visually confirms that the text has been copied
+// Gives user visual feedback confirming that the text has been copied
 function visuallyConfirmTextCopied(){
   // First, show the text
   //document.getElementById("copiedConfirmationText").style.visibility = "visible";
@@ -175,5 +178,4 @@ function showStageInfoCard(stage){
   // Then show only the active card
   document.getElementById(stage + "Info").style.display = "block";
 }
-
 

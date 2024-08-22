@@ -191,7 +191,7 @@
                     <div class="copyables">. Please tell me more about that.</div>
                 </p>
                 <p>
-                    <em>Address any immediate harm and then assess fully.</em>
+                    <em>Address any immediate harm and then <a href="#assessFully">assess fully</a>.</em>
                 </p>
                 </label>
                 <input type="radio" name="riskAssessmentBug" id="yth" />
@@ -206,28 +206,33 @@
                     <div class="copyables">Do you have any plans to act on them?</div>
                 </p>
                 <p>
-                    <em>If yes, assess fully.</em>
+                    <em>If yes, <a href="#assessFully">assess fully</a>.</em>
                 </p>
                 </label>
                 <input type="radio" name="riskAssessmentBug" id="ynst" />
 
                 <p>
-                    <em>If no to both questions, continue to gather info.</em>
+                    <em>If no to both questions, continue to
+                        <a href="#" onclick="showStageInfoCard('gatheringInformation');">
+                            gather info.
+                        </a>
+                    </em>
                 </p>
 
-                <h2>Assess Fully</h2>
+                <h2 id="assessFully">Assess Fully</h2>
                 
                 <label for="means">
-                    <h3>Means in Mind?</h3>
+                    <h3>Ask about Means</h3>
                     <p>
                         <div class="copyables">Lots of people deal with these thoughts, and I want you to know that you're not alone. I'm wondering, how are you thinking of killing yourself?</div>
                     </p>
                 </label>
                 <input type="radio" name="riskAssessmentBug" id="means"/>
 
+
                 
-                <label for="meansAccessible">
-                    <h3>Means Accessible?</h3>
+                <label for="meansAccessible1">
+                    <h3>Ask if Means is Accessible</h3>
                     <i>If contact has means in mind.</i>
                 
                     <p>
@@ -241,10 +246,19 @@
                         <div class="copyables">right now?</div>
                     </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="meansAccessible" />
+                <input type="radio" name="riskAssessmentBug" id="meansAccessible1" />
+
+                <label for="meansAccessible2">
+                    <p>
+                        <div class="copyables">Got it. And where are you right now,</div>
+                        <div class="manuals">name</div>
+                        <div class="copyables">?</div>
+                    </p>
+                </label>
+                <input type="radio" name="riskAssessmentBug" id="meansAccessible2" />
 
                 <label for="safetyPlanningIfMeansInMind">
-                    <h4>Safety Intervention</h4>
+                    <h4>Address Safety</h4>
                     <i>If means present:</i>
                 
                     <p>
@@ -293,26 +307,6 @@
                     </p>
                 </label>
                 <input type="radio" name="riskAssessmentBug" id="safetyPlanningIfMeansInMind" />
-                <p>
-                    <i>Safety planning: if present, remove; else, request notice of thoughts to access means.</i>
-                </p>
-
-                <label for="inProgress">
-                    <h3>In Progress?</h3>
-                    <p>
-                        <div class="copyables">You mentioned that things have been pretty tough since</div>
-                        <div class="manuals">event</div>
-                        <div class="copyables">. Have you done anything today to try to kill yourself?</div>
-                    </p>
-                    <p>
-                        <i>If cutting:</i> 
-                        <div class="copyables">When you cut yourself today, were you cutting to try to kill yourself?</div>
-                    </p>
-                </label>
-                <input type="radio" name="riskAssessmentBug" id="inProgress"/><br/>
-                <p>
-                    <i>If attempt is in progress, initiate intervention immediately, then continue assessment.</i>
-                </p>
 
                 <label for="when">
                     <h3>When?</h3>
@@ -686,11 +680,7 @@
                 <h3>Disclosures</h3>
 
                 <div class="copyables">It sounds like things are really rough at home right now, and I definitely want to hear more about that, but I also want to let you know that depending on what you share we may need to make a report to an agency in your area who is there to keep you safe. You can share as much or as little as you like. I'm here to listen.</div>
-
-
-
             </div>
-
         </div>
     </div>
 </html>
