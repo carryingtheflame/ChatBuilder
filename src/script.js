@@ -6,7 +6,7 @@
 window.onload = function() {
   
   // Activate the first tabbed card.
-  showStageInfoCard("establishingRapport");
+  showStageInfoCard("establishRapport");
 
   // Make all copyable text elements interactive.
   initializeCopyables();

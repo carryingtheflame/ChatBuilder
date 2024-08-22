@@ -42,20 +42,20 @@
         <div class="referencePanelDivs">
             
             <!-- Tabs -->
-            <input type="radio" class="radioTab" name="stageModelSelector" id="establishingRapport" value="establishingRapport" onclick="showStageInfoCard('establishingRapport')" checked="true" />
-            <label class="labelTab" for="establishingRapport" id="establishingRapportTab">Open</label><!--br /-->
+            <input type="radio" class="radioTab" name="stageModelSelector" id="establishRapport" value="establishRapport" onclick="showStageInfoCard('establishRapport')" checked="true" />
+            <label class="labelTab" for="establishRapport" id="establishRapportTab">Open</label><!--br /-->
 
-            <input type="radio" class="radioTab" name="stageModelSelector" id="riskAssessment" value="riskAssessment" onclick="showStageInfoCard('riskAssessment')" />
-            <label class="labelTab" for="riskAssessment" id="riskAssessmentTab">Assess</label><!--br /-->
+            <input type="radio" class="radioTab" name="stageModelSelector" id="assessSafety" value="assessSafety" onclick="showStageInfoCard('assessSafety')" />
+            <label class="labelTab" for="assessSafety" id="assessSafetyTab">Assess</label><!--br /-->
 
-            <input type="radio" class="radioTab" name="stageModelSelector" id="gatheringInformation" value="gatheringInformation" onclick="showStageInfoCard('gatheringInformation')" />
-            <label class="labelTab" for="gatheringInformation" id="gatheringInformationTab">Gather Info</label><!--br /-->
+            <input type="radio" class="radioTab" name="stageModelSelector" id="gatherInfo" value="gatherInfo" onclick="showStageInfoCard('gatherInfo')" />
+            <label class="labelTab" for="gatherInfo" id="gatherInfoTab">Gather Info</label><!--br /-->
 
-            <input type="radio" class="radioTab" name="stageModelSelector" id="exploringAlternatives" value="exploringAlternatives" onclick="showStageInfoCard('exploringAlternatives')" />
-            <label class="labelTab" for="exploringAlternatives" id="exploringAlternativesTab">Explore Alternatives</label><!--br /-->
+            <input type="radio" class="radioTab" name="stageModelSelector" id="safetyPlan" value="safetyPlan" onclick="showStageInfoCard('safetyPlan')" />
+            <label class="labelTab" for="safetyPlan" id="safetyPlanTab">Plan</label><!--br /-->
 
-            <input type="radio" class="radioTab" name="stageModelSelector" id="riskReassessment" value="riskReassessment" onclick="showStageInfoCard('riskReassessment')" />
-            <label class="labelTab" for="riskReassessment" id="riskReassessmentTab">Reassess</label><!--br /-->
+            <input type="radio" class="radioTab" name="stageModelSelector" id="reassessSafety" value="reassessSafety" onclick="showStageInfoCard('reassessSafety')" />
+            <label class="labelTab" for="reassessSafety" id="reassessSafetyTab">Reassess</label><!--br /-->
             
             <input type="radio" class="radioTab" name="stageModelSelector" id="closure" value="closure" onclick="showStageInfoCard('closure')" />
             <label class="labelTab" for="closure" id="closureTab">Close</label><!--br /-->
@@ -67,7 +67,7 @@
 
         <div class="referencePanelDivs" id="dynamicReference">
             
-            <div class="stageInfoCards" id="establishingRapportInfo">
+            <div class="stageInfoCards" id="establishRapportInfo">
                 <h2>Open</h2>
 
                 <h3>Disclosure</h3>
@@ -156,7 +156,7 @@
                 </p>
             </div>
 
-            <div class="stageInfoCards" id="riskAssessmentInfo">
+            <div class="stageInfoCards" id="assessSafetyInfo">
                 <h2>Assess</h2>
 
                 <label for="aat">
@@ -167,7 +167,7 @@
                     <div class="copyables">. With all of this going on, have you had any thoughts of suicide in the past few days, including today?</div>
                 </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="aat" />
+                <input type="radio" name="assessSafetyBug" id="aat" />
 
                 <label for="aah">
                 <h3>Ask About Harm</h3>
@@ -180,7 +180,7 @@
                     <div class="copyables">Have you taken any action to harm yourself today?</div>
                 </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="aah" />
+                <input type="radio" name="assessSafetyBug" id="aah" />
 
                 <label for="yth">
                 <h3>Follow Up</h3>
@@ -194,7 +194,7 @@
                     <em>Address any immediate harm and then <a href="#assessFully">assess fully</a>.</em>
                 </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="yth" />
+                <input type="radio" name="assessSafetyBug" id="yth" />
 
                 <label for="ynst">
                 <h4>Yes or Not Sure to Question About Thoughts</h4>
@@ -209,11 +209,11 @@
                     <em>If yes, <a href="#assessFully">assess fully</a>.</em>
                 </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="ynst" />
+                <input type="radio" name="assessSafetyBug" id="ynst" />
 
                 <p>
                     <em>If no to both questions, continue to
-                        <a href="#" onclick="showStageInfoCard('gatheringInformation');">
+                        <a href="#" onclick="showStageInfoCard('gatherInfo');">
                             gather info.
                         </a>
                     </em>
@@ -227,7 +227,7 @@
                         <div class="copyables">Lots of people deal with these thoughts, and I want you to know that you're not alone. I'm wondering, how are you thinking of killing yourself?</div>
                     </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="means"/>
+                <input type="radio" name="assessSafetyBug" id="means"/>
 
 
                 
@@ -246,7 +246,7 @@
                         <div class="copyables">right now?</div>
                     </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="meansAccessible1" />
+                <input type="radio" name="assessSafetyBug" id="meansAccessible1" />
 
                 <label for="meansAccessible2">
                     <p>
@@ -255,7 +255,7 @@
                         <div class="copyables">?</div>
                     </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="meansAccessible2" />
+                <input type="radio" name="assessSafetyBug" id="meansAccessible2" />
 
                 <label for="safetyPlanningIfMeansInMind">
                     <h4>Address Safety</h4>
@@ -304,7 +304,7 @@
                         <div class="copyables">while we're chatting?</div>
                     </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="safetyPlanningIfMeansInMind" />
+                <input type="radio" name="assessSafetyBug" id="safetyPlanningIfMeansInMind" />
 
                 <label for="when">
                     <h3>Ask About Timeframe</h3>
@@ -313,7 +313,7 @@
                         <div class="manuals">issues</div><div class="copyables">.  When are you thinking of killing yourself?</div>
                     </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="when"/>
+                <input type="radio" name="assessSafetyBug" id="when"/>
 
                 <label for="howLong">
                     <h3>How Long?</h3>
@@ -326,7 +326,7 @@
                         <div class="copyables">. How long have you been feeling this way?</div>
                     </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="howLong"/>
+                <input type="radio" name="assessSafetyBug" id="howLong"/>
 
                 <label for="pastAttempts">
                     <h3>Past Attempts?</h3>
@@ -336,7 +336,7 @@
                         <div class="copyables">for so long. Have you ever attempted to kill yourself?</div>
                     </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="pastAttempts"/>
+                <input type="radio" name="assessSafetyBug" id="pastAttempts"/>
 
                 <label for="transitioningOutYes">
                     <h3>Transitioning Out</h3>
@@ -344,12 +344,12 @@
                         <div class="copyables">I appreciate you sticking with me. What brought on these thoughts you're having today?</div>
                     </p>
                 </label>
-                <input type="radio" name="riskAssessmentBug" id="transitioningOutYes"/>
+                <input type="radio" name="assessSafetyBug" id="transitioningOutYes"/>
 
 
             </div>
 
-            <div class="stageInfoCards" id="gatheringInformationInfo">
+            <div class="stageInfoCards" id="gatherInfoInfo">
                 <h2>Gather Info</h2>
 
                 <div class="copyables">
@@ -459,8 +459,8 @@
 
             </div>
 
-            <div class="stageInfoCards" id="exploringAlternativesInfo">
-                <h2>Exploring Alternatives</h2>
+            <div class="stageInfoCards" id="safetyPlanInfo">
+                <h2>Safety Plan</h2>
 
                 <h3>Harm Reduction</h3>
 
@@ -536,7 +536,7 @@
                 
             </div>
 
-            <div class="stageInfoCards" id="riskReassessmentInfo">
+            <div class="stageInfoCards" id="reassessSafetyInfo">
                 <h2>Risk Reassessment</h2>
                 <i>Only for High and Immediate Risk contacts.</i>
 
