@@ -105,7 +105,7 @@ h4{
 }
 
 /* Stage Info Cards hidden by default */ 
-.stageInfoCards{
+.stageCards{
   display: none;
   padding-bottom: 5em;
 }

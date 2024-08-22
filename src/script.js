@@ -170,12 +170,12 @@ function showStageInfoCard(stage){
   activeTab.style.boxShadow ="none";
   
   // Hide all the stage info cards,
-  stageInfoList = document.getElementsByClassName("stageInfoCards");
+  stageInfoList = document.getElementsByClassName("stageCards");
   for (var x = 0; x < stageInfoList.length; x++) {
     stageInfoList[x].style.display = "none";
   }
 
   // Then show only the active card
-  document.getElementById(stage + "Info").style.display = "block";
+  document.getElementById(stage + "Card").style.display = "block";
 }
 
