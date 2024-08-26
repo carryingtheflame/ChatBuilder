@@ -4,720 +4,924 @@
         <!--script src="jquery-3.7.1.min.js"></script-->
         <meta charset="UTF-8">
         <script src="src/script.js"></script>
-        <link rel="stylesheet" href="src/styles.css">
+        <!--link rel="stylesheet" href="src/styles.css"-->
     </head>
-    
-    
-    <h1>Chat Builder</h1>
+
+    <style type="text/css" media="screen">
+        /* General Items */
+
+        body {
+        font-family: Arial, sans-serif;
+        margin-left:1.5em;
+        margin-right:1.5em;
+        margin-top:0.5em;
+        margin-bottom:0.5em;
+        }
         
-    <div class="topright">
-        <small>
-            Version 0.2
-            <a title="Link to project's page on Github" href="https://github.com/carryingtheflame/ChatBuilder">Check Website for New Version</a>
-        </small>
-    </div>
+        div{
+        /*border:1px solid blue;*/
+        margin:0em;
+        }
 
-    <div id="compositionPanel">
-        <!-- The text field -->
-        <!-- TODO: I want this to resize dynamically so it can be inline with button and confirmation. -->
-        <!--input type="text" size="100" value="" id="compositionField" tabindex="1"-->
-        <textarea cols="75" rows ="3" value="" id="compositionField" tabindex="1"></textarea>
+        h1{
+        color: navy;
+        font-size:1.2em;
+        }
 
-        <!-- The button used to copy the text -->
-        <!--button onclick="copyCompositionField()" tabindex="2" id="copyTextButton" title="Copy Text">✂️</button-->
+        h2{
+        color: darkblue;
+        }
 
-        <!-- The button used to clear the text -->
-        <!--button onclick="clearCompositionField()" tabindex="3" id="clearTextButton" title="Clear Text">❎</button-->
+        h3{
+        color:steelblue;
+        }
 
-        <!-- A convenience button for copying and then clearing the text -->
-        <button onclick="copyAndClearCompositionField()" tabindex="4" id="copyAndClearTextButton" title="Cut text (Ctrl-X or ⌘-X)">✂️</button>
+        h4{
+        color: slategray;
+        font-style: italic;
+        }
 
-        <!-- This label confirms the text has been copied -->
-        <!--label for="copyAndClearTextButton" id="copiedConfirmationText" title="Text Copied">✅</label-->
-    </div>
+        .topright{
+        z-index: 10;  
+        position: absolute;
+        right: 0.5em;  
+        top: 1em;
+        }
+
+        /* Composition Panel */
+
+        #compositionPanel{
+        position: fixed;
+        bottom: 0px;
+        background-color: white;
+        border: none; /*1px solid black;*/
+        padding:1em;
+        margin-left: -1em;
+        width:100%;
+        filter: drop-shadow(black 0em 0em 0.125em);
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+        display:flex;
+        }
+
+        #compositionField{
+        resize:horizontal;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:0.9em;
+        margin-top:auto;
+        margin-bottom:auto;
+        }
+
+        #copyAndClearTextButton{
+        width:1.75em;
+        height:1.65em;
+        margin-top:auto;
+        margin-bottom:auto;
+        margin-left: 0.25em;
+        font-size: 2em;
+        padding:0em;
+        }
+
+        /* Radio Button Tabs */
+        /* Custom implementation for security */
+
+        /* Just hide the actual radio buttons */ 
+        .radioTab{
+        display: none;
+        }
+
+        /* These are the actual tab ends */ 
+        .labelTab{
+        cursor:pointer;
+        display: inline-block;
+        padding: 0.5em;
+        margin:0;
+        margin-inline:-0.16em;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+        }
+
+        /* Reference Panel */
+        /* Contains stage info cards */
+        .referencePanelDivs{
+        margin:0em;
+        }
+
+        /* Stage Info Cards hidden by default */ 
+        .stageCards{
+        display: none;
+        padding-bottom: 5em;
+        }
+
+        /* Copyable bits of text */ 
+        .copyables{
+        display: inline-block;
+        cursor: pointer;
+        border: 1px dotted CornflowerBlue;
+        border-radius: 0.25em;
+        background-color: aliceblue;
+        padding-left: 0.125em;
+        padding-right: 0.125em;
+        padding-bottom: 0.125em;
+        user-select: none;
+        margin-bottom: 0.5em;
+        margin-right: 0.125em;
+        }
+
+        /* This is for the quick-copy phrases */
+        .copyables:hover{
+        background-color: dodgerblue;
+        color:white;
+        }
+
+        /* This is for the moment in which they're being clicked */
+        .copyables:active{
+        background-color: aquamarine;
+        }
+
+        /* Decorative styling for choosable bits of text */ 
+        .choosables{
+        display: inline-block;
+        cursor: pointer;
+        border: 1px dotted darkorchid;
+        border-radius: 0.25em;
+        background-color: lavender;
+        padding-left: 0.125em;
+        padding-right: 0.125em;
+        padding-bottom: 0.125em;
+        user-select: none;
+        margin-bottom: 0.5em;
+        margin-right: 0.125em;
+        }
+
+        /* This is for the quick-copy phrases */
+        .choosables:hover{
+        background-color: mediumslateblue;
+        }
+
+        /* This is for the moment in which they're being clicked */
+        .choosables:active{
+        background-color: fuchsia;
+        }
+
+        /* Random text pickers */ 
+        .randomables{
+        font-style:italic;
+        display: inline-block;
+        cursor: pointer;
+        border: 1px dotted forestgreen;
+        border-radius: 0.25em;
+        background-color: honeydew;
+        padding-left: 0.125em;
+        padding-right: 0.125em;
+        padding-bottom: 0.125em;
+        user-select: none;
+        margin-bottom: 0.5em;
+        margin-right: 0.125em;
+        }
+
+        /* This is for the quick-copy phrases */
+        .randomables:hover{
+        background-color: limegreen;
+        color:white;
+        }
+
+        /* This is for the moment in which they're being clicked */
+        .randomables:active{
+        background-color: chartreuse;
+        }
+
+        /* Non-copyable bits of text */ 
+        .manuals{
+        font-style:italic;
+        display: inline-block;
+        cursor: not-allowed;
+        border: 1px dotted gray;
+        border-radius: 0.25em;
+        background-color: whitesmoke;
+        padding-left: 0.125em;
+        padding-right: 0.125em;
+        padding-bottom: 0.125em;
+        user-select: none;
+        margin-bottom: 0.5em;
+        margin-right: 0.125em;
+        }
+    </style>
     
-    <div>
-        <div class="referencePanelDivs">
-            
-            <!-- Tabs -->
-            <input type="radio" class="radioTab" name="stageModelSelector" id="establishRapport" value="establishRapport" onclick="showStageInfoCard('establishRapport')" checked="true" />
-            <label class="labelTab" for="establishRapport" id="establishRapportTab">Open</label><!--br /-->
-
-            <input type="radio" class="radioTab" name="stageModelSelector" id="assessSafety" value="assessSafety" onclick="showStageInfoCard('assessSafety')" />
-            <label class="labelTab" for="assessSafety" id="assessSafetyTab">Assess</label><!--br /-->
-
-            <input type="radio" class="radioTab" name="stageModelSelector" id="gatherInfo" value="gatherInfo" onclick="showStageInfoCard('gatherInfo')" />
-            <label class="labelTab" for="gatherInfo" id="gatherInfoTab">Gather Info</label><!--br /-->
-
-            <input type="radio" class="radioTab" name="stageModelSelector" id="safetyPlan" value="safetyPlan" onclick="showStageInfoCard('safetyPlan')" />
-            <label class="labelTab" for="safetyPlan" id="safetyPlanTab">Plan</label><!--br /-->
-
-            <input type="radio" class="radioTab" name="stageModelSelector" id="reassessSafety" value="reassessSafety" onclick="showStageInfoCard('reassessSafety')" />
-            <label class="labelTab" for="reassessSafety" id="reassessSafetyTab">Reassess</label><!--br /-->
-            
-            <input type="radio" class="radioTab" name="stageModelSelector" id="closure" value="closure" onclick="showStageInfoCard('closure')" />
-            <label class="labelTab" for="closure" id="closureTab">Close</label><!--br /-->
-
-            <input type="radio" class="radioTab" name="stageModelSelector" id="disclosure" value="disclosure" onclick="showStageInfoCard('disclosure')" />
-            <label class="labelTab" for="disclosure" id="disclosureTab">Discl*</label><!--br /-->
-
+    <body>
+        <h1>Chat Builder</h1>
+        
+        <div class="topright">
+            <small>
+                Version 0.2
+                <a title="Link to project's page on Github" href="https://github.com/carryingtheflame/ChatBuilder">Check Website for New Version</a>
+            </small>
         </div>
 
-        <div class="referencePanelDivs" id="dynamicReference">
-            
-            <div class="stageCards" id="establishRapportCard">
-                <h2>Open</h2>
+        <div id="compositionPanel">
+            <!-- The text field -->
+            <!-- TODO: I want this to resize dynamically so it can be inline with button and confirmation. -->
+            <!--input type="text" size="100" value="" id="compositionField" tabindex="1"-->
+            <textarea cols="75" rows ="3" value="" id="compositionField" tabindex="1"></textarea>
 
-                <h3>Disclosure</h3>
-                <p>
-                    <div class="copyables">Hi, welcome to</div>
-                    <div class="manuals">service name</div>
-                    <div class="copyables">. My name is</div>
-                    <div class="randomables" id="randomName">random alias</div>
-                    <div class="copyables">. Before we start talking, I want to let you know that all conversations are confidential. We do not share any information about these conversations unless we need to support you or someone else in getting immediate help in a life-threatening situation, or if we need to report a situation involving abuse to a vulnerable individual.</div>
-                </p>
+            <!-- The button used to copy the text -->
+            <!--button onclick="copyCompositionField()" tabindex="2" id="copyTextButton" title="Copy Text">✂️</button-->
 
-                <h3>Establish rapport</h3>
-                <p>
-                    <div class="copyables">I'm here to listen.</div>
-                    <div class="copyables choosables">What's going on?</div>/
-                    <div class="copyables choosables">Tell me more about</div>
-                    <div class="manuals">issue</div>
-                    <div class="copyables choosables">.</div>
-                </p>
+            <!-- The button used to clear the text -->
+            <!--button onclick="clearCompositionField()" tabindex="3" id="clearTextButton" title="Clear Text">❎</button-->
 
-                <h3>Reflecting</h3>
-                <p>
-                    <div class="copyables choosables">It sounds like you're feeling</div>/
-                    <div class="copyables choosables">I'm hearing that you're feeling</div>/
-                    <div class="copyables choosables">I can sense that you feel</div>/
-                    <div class="copyables choosables">It seems like</div>/
-                    <div class="copyables choosables">I hear that you've felt</div>/
-                    <div class="copyables choosables">You mentioned</div>/
-                    <div class="copyables choosables">That does sound like</div> 
-                </p>
+            <!-- A convenience button for copying and then clearing the text -->
+            <button onclick="copyAndClearCompositionField()" tabindex="4" id="copyAndClearTextButton" title="Cut text (Ctrl-X or ⌘-X)">✂️</button>
 
-                <h3>Normalizing</h3>
-                <p>
-                    <div class="copyables choosables">Lots of people struggle with</div>/
-                    <div class="copyables choosables">Many folks have expressed</div>/
-                    <div class="copyables choosables">You're not alone</div>/
-                    <div class="copyables choosables">It's not unusual to feel</div>/
-                    <div class="copyables choosables">Anyone would feel</div>
-                </p>
-
-                <h3>Validating</h3>
-                <p>
-                    <div class="copyables choosables">From what you told me, it makes sense that you would feel</div>/
-                    <div class="copyables choosables">It's okay to feel</div>/
-                    <div class="copyables choosables">I can understand why you feel</div>
-                </p>
+            <!-- This label confirms the text has been copied -->
+            <!--label for="copyAndClearTextButton" id="copiedConfirmationText" title="Text Copied">✅</label-->
+        </div>
+        
+        <div>
+            <div class="referencePanelDivs">
                 
-                <h3>Name</h3>
-                <p>
-                    <em>Always ask here.</em>
-                </p>
-                <p>
-                    <div class="copyables">What name can I call you while we chat today?</div>
-                </p>
-                <p>
-                    <div class="copyables">It's nice to meet you,</div>
-                    <div class="manuals">name</div>
-                </p>
+                <!-- Tabs -->
+                <input type="radio" class="radioTab" name="stageModelSelector" id="establishRapport" value="establishRapport" onclick="showStageInfoCard('establishRapport')" checked="true" />
+                <label class="labelTab" for="establishRapport" id="establishRapportTab">Open</label><!--br /-->
 
-                <h3>Age and Location</h3>
-                <p>
-                    <em>Ask as the occasion arises.</em>
-                </p>
-                <p>
-                    <div class="copyables">You mentioned facing these challenges at</div>
-                    <div class="manuals">place</div>
-                    <div class="copyables">. What's your age?</div>
-                </p>
-                <p>
-                    <div class="copyables">Thanks for being open to receiving resources. Some resources are age-related. What's your age?</div>
-                </p>
-                <p>
-                    <div class="copyables">Some resources are location-specific. What city and state are you reaching out from?</div>
-                </p>
+                <input type="radio" class="radioTab" name="stageModelSelector" id="assessSafety" value="assessSafety" onclick="showStageInfoCard('assessSafety')" />
+                <label class="labelTab" for="assessSafety" id="assessSafetyTab">Assess</label><!--br /-->
 
-                <h3>Privacy Concerns</h3>
-                <p>
-                    <div class="copyables">I can understand why you might not be comfortable sharing</div>
-                    (
-                        <div class="copyables choosables">your age</div>
-                        /
-                        <div class="copyables choosables">your city</div>
-                        /
-                        <div class="copyables choosables">your state</div>
-                    )
-                    <div class="copyables">. You don't need to share anything you're not comfortable sharing.</div>
-                </p>
+                <input type="radio" class="radioTab" name="stageModelSelector" id="gatherInfo" value="gatherInfo" onclick="showStageInfoCard('gatherInfo')" />
+                <label class="labelTab" for="gatherInfo" id="gatherInfoTab">Gather Info</label><!--br /-->
+
+                <input type="radio" class="radioTab" name="stageModelSelector" id="safetyPlan" value="safetyPlan" onclick="showStageInfoCard('safetyPlan')" />
+                <label class="labelTab" for="safetyPlan" id="safetyPlanTab">Plan</label><!--br /-->
+
+                <input type="radio" class="radioTab" name="stageModelSelector" id="reassessSafety" value="reassessSafety" onclick="showStageInfoCard('reassessSafety')" />
+                <label class="labelTab" for="reassessSafety" id="reassessSafetyTab">Reassess</label><!--br /-->
+                
+                <input type="radio" class="radioTab" name="stageModelSelector" id="closure" value="closure" onclick="showStageInfoCard('closure')" />
+                <label class="labelTab" for="closure" id="closureTab">Close</label><!--br /-->
+
+                <input type="radio" class="radioTab" name="stageModelSelector" id="disclosure" value="disclosure" onclick="showStageInfoCard('disclosure')" />
+                <label class="labelTab" for="disclosure" id="disclosureTab">Discl*</label><!--br /-->
+
             </div>
 
-            <div class="stageCards" id="assessSafetyCard">
-                <h2>Assess</h2>
-
-                <label for="aat">
-                <h3>Thoughts</h3>
-                <p>
-                    <div class="copyables">I'm hearing that this has been a difficult time for you, with</div>
-                    <div class="manuals">issues</div>
-                    <div class="copyables">. With all of this going on, have you had any thoughts of suicide in the past few days, including today?</div>
-                </p>
-                </label>
-                <input type="radio" name="assessSafetyBug" id="aat" />
-
-                <label for="aah">
-                <h3>Harm</h3>
-                <p>
-                    <div class="copyables choosables">Okay.</div> /
-                    <div class="copyables choosables">Thank you for letting me know.</div> /
-                    <div class="copyables choosables">It can be so hard to deal with those thoughts.</div>
-                </p>
-                <p>
-                    <div class="copyables">Have you taken any action to harm yourself today?</div>
-                </p>
-                </label>
-                <input type="radio" name="assessSafetyBug" id="aah" />
-
-                <label for="yth">
-                <h3>Follow Up</h3>
-                <h4>Yes to Question About Harm</h4>
-                <p>
-                    <div class="copyables">Thank you for letting me know about</div>
-                    <div class="manuals">harm</div>
-                    <div class="copyables">. Please tell me more about that.</div>
-                </p>
-                <p>
-                    <em>Address any immediate harm and then <a href="#assessFully">assess fully</a>.</em>
-                </p>
-                </label>
-                <input type="radio" name="assessSafetyBug" id="yth" />
-
-                <label for="ynst">
-                <h4>Yes or Not Sure to Question About Thoughts</h4>
-                <p>
-                    <div class="copyables">Earlier you mentioned</div>
-                    <div class="copyables choosables">you weren't sure if</div>
-                    <div class="copyables">you were having thoughts of suicide.</div>
-                    <div class="copyables choosables">Many people struggle with those thoughts.</div>
-                    <div class="copyables">Do you have any plans to act on them?</div>
-                </p>
-                <p>
-                    <em>If yes, <a href="#assessFully">assess fully</a>.</em>
-                </p>
-                </label>
-                <input type="radio" name="assessSafetyBug" id="ynst" />
-
-                <p>
-                    <em>If no to both questions, continue to
-                        <a href="#" onclick="showStageInfoCard('gatherInfo');">
-                            gather info.
-                        </a>
-                    </em>
-                </p>
-
-                <h2 id="assessFully">Full Assessment</h2>
+            <div class="referencePanelDivs" id="dynamicReference">
                 
-                <label for="means">
-                    <h3>Means</h3>
+                <div class="stageCards" id="establishRapportCard">
+                    <h2>Open</h2>
+
+                    <h3>Disclosure</h3>
                     <p>
-                        <div class="copyables">Lots of people deal with these thoughts, and I want you to know that you're not alone. I'm wondering, how are you thinking of killing yourself?</div>
+                        <div class="copyables">Hi, welcome to</div>
+                        <div class="manuals">service name</div>
+                        <div class="copyables">. My name is</div>
+                        <div class="randomables" id="randomName">random alias</div>
+                        <div class="copyables">. Before we start talking, I want to let you know that all conversations are confidential. We do not share any information about these conversations unless we need to support you or someone else in getting immediate help in a life-threatening situation, or if we need to report a situation involving abuse to a vulnerable individual.</div>
                     </p>
-                </label>
-                <input type="radio" name="assessSafetyBug" id="means"/>
-                
-                <label for="meansAccessible1">
-                    <i>If contact has means in mind.</i>
-                
-                    <p>
-                        <div class="copyables">Thanks for letting me know. Where</div>
-                        (
-                            <div class="copyables choosables">is the</div>
-                            /
-                            <div class="copyables choosables">are the</div>
-                        )
-                        <div class="manuals">means</div>
-                        <div class="copyables">right now?</div>
-                    </p>
-                </label>
-                <input type="radio" name="assessSafetyBug" id="meansAccessible1" />
 
-                <label for="meansAccessible2">
+                    <h3>Establish rapport</h3>
                     <p>
-                        <div class="copyables">Got it. And where are you right now,</div>
+                        <div class="copyables">I'm here to listen.</div>
+                        <div class="copyables choosables">What's going on?</div>/
+                        <div class="copyables choosables">Tell me more about</div>
+                        <div class="manuals">issue</div>
+                        <div class="copyables choosables">.</div>
+                    </p>
+
+                    <h3>Reflecting</h3>
+                    <p>
+                        <div class="copyables choosables">It sounds like you're feeling</div>/
+                        <div class="copyables choosables">I'm hearing that you're feeling</div>/
+                        <div class="copyables choosables">I can sense that you feel</div>/
+                        <div class="copyables choosables">It seems like</div>/
+                        <div class="copyables choosables">I hear that you've felt</div>/
+                        <div class="copyables choosables">You mentioned</div>/
+                        <div class="copyables choosables">That does sound like</div> 
+                    </p>
+
+                    <h3>Normalizing</h3>
+                    <p>
+                        <div class="copyables choosables">Lots of people struggle with</div>/
+                        <div class="copyables choosables">Many folks have expressed</div>/
+                        <div class="copyables choosables">You're not alone</div>/
+                        <div class="copyables choosables">It's not unusual to feel</div>/
+                        <div class="copyables choosables">Anyone would feel</div>
+                    </p>
+
+                    <h3>Validating</h3>
+                    <p>
+                        <div class="copyables choosables">From what you told me, it makes sense that you would feel</div>/
+                        <div class="copyables choosables">It's okay to feel</div>/
+                        <div class="copyables choosables">I can understand why you feel</div>
+                    </p>
+                    
+                    <h3>Name</h3>
+                    <p>
+                        <em>Always ask here.</em>
+                    </p>
+                    <p>
+                        <div class="copyables">What name can I call you while we chat today?</div>
+                    </p>
+                    <p>
+                        <div class="copyables">It's nice to meet you,</div>
                         <div class="manuals">name</div>
-                        <div class="copyables">?</div>
                     </p>
-                </label>
-                <input type="radio" name="assessSafetyBug" id="meansAccessible2" />
 
-                <label for="safetyPlanningIfMeansInMind">
-                    <h4>Address Safety</h4>
-                    <i>If means present:</i>
-                
+                    <h3>Age and Location</h3>
                     <p>
-                        <div class="copyables">I really appreciate you sharing that with me, and want to ensure your safety. How would it feel to</div>
-                        (
-                            <div class="copyables choosables">move</div>
-                            /
-                            <div class="copyables choosables">cover</div>
-                        )
-                        <div class="manuals">means</div>
-                        <div class="copyables">so that</div>
-                        (
-                            <div class="copyables choosables">you're in another room</div>
-                            /
-                            <div class="copyables choosables">it's out of reach</div>
-                            /
-                            <div class="copyables choosables">it's out of sight</div>
-                        )
-                        <div class="copyables">while we chat?</div>
+                        <em>Ask as the occasion arises.</em>
                     </p>
-
                     <p>
-                        <div class="copyables">Thank you. How about you let me know if you think about</div>
-                        (
-                            <div class="copyables choosables">uncovering</div>
-                            /
-                            <div class="copyables choosables">picking up</div>
-                            /
-                            <div class="manuals">reaching the means</div>
-                        )
-                        <div class="copyables">while we're chatting?</div>
+                        <div class="copyables">You mentioned facing these challenges at</div>
+                        <div class="manuals">place</div>
+                        <div class="copyables">. What's your age?</div>
                     </p>
-
-                    <i>If means not present, but accessible:</i>
-                
                     <p>
-                        <div class="copyables">Okay. How would it feel to let me know if you think about</div>
-                        (
-                            <div class="copyables choosables">going to the roof</div>
-                            /
-                            <div class="manuals">accessing the means</div>
-                        )
-                        <div class="copyables">while we're chatting?</div>
+                        <div class="copyables">Thanks for being open to receiving resources. Some resources are age-related. What's your age?</div>
                     </p>
-                </label>
-                <input type="radio" name="assessSafetyBug" id="safetyPlanningIfMeansInMind" />
-
-                <label for="when">
-                    <h3>Ask About Timeframe</h3>
                     <p>
-                        <div class="copyables">I really appreciate your openness with me. It sounds like things have been pretty overwhelming recently because of</div>
-                        <div class="manuals">issues</div><div class="copyables">.  When are you thinking of killing yourself?</div>
+                        <div class="copyables">Some resources are location-specific. What city and state are you reaching out from?</div>
                     </p>
-                </label>
-                <input type="radio" name="assessSafetyBug" id="when"/>
 
-
-            </div>
-
-            <div class="stageCards" id="gatherInfoCard">
-                <h2>Gather Info</h2>
-
-                <div class="copyables">
-                    Thank you for being so open with me. Tell me more about
+                    <h3>Privacy Concerns</h3>
+                    <p>
+                        <div class="copyables">I can understand why you might not be comfortable sharing</div>
+                        (
+                            <div class="copyables choosables">your age</div>
+                            /
+                            <div class="copyables choosables">your city</div>
+                            /
+                            <div class="copyables choosables">your state</div>
+                        )
+                        <div class="copyables">. You don't need to share anything you're not comfortable sharing.</div>
+                    </p>
                 </div>
-                <div class="manuals">
-                    presenting issue
+
+                <div class="stageCards" id="assessSafetyCard">
+                    <h2>Assess</h2>
+
+                    <label for="aat">
+                    <h3>Thoughts</h3>
+                    <p>
+                        <div class="copyables">I'm hearing that this has been a difficult time for you, with</div>
+                        <div class="manuals">issues</div>
+                        <div class="copyables">. With all of this going on, have you had any thoughts of suicide in the past few days, including today?</div>
+                    </p>
+                    </label>
+                    <input type="radio" name="assessSafetyBug" id="aat" />
+
+                    <label for="aah">
+                    <h3>Harm</h3>
+                    <p>
+                        <div class="copyables choosables">Okay.</div> /
+                        <div class="copyables choosables">Thank you for letting me know.</div> /
+                        <div class="copyables choosables">It can be so hard to deal with those thoughts.</div>
+                    </p>
+                    <p>
+                        <div class="copyables">Have you taken any action to harm yourself today?</div>
+                    </p>
+                    </label>
+                    <input type="radio" name="assessSafetyBug" id="aah" />
+
+                    <label for="yth">
+                    <h3>Follow Up</h3>
+                    <h4>Yes to Question About Harm</h4>
+                    <p>
+                        <div class="copyables">Thank you for letting me know about</div>
+                        <div class="manuals">harm</div>
+                        <div class="copyables">. Please tell me more about that.</div>
+                    </p>
+                    <p>
+                        <em>Address any immediate harm and then <a href="#assessFully">assess fully</a>.</em>
+                    </p>
+                    </label>
+                    <input type="radio" name="assessSafetyBug" id="yth" />
+
+                    <label for="ynst">
+                    <h4>Yes or Not Sure to Question About Thoughts</h4>
+                    <p>
+                        <div class="copyables">Earlier you mentioned</div>
+                        <div class="copyables choosables">you weren't sure if</div>
+                        <div class="copyables">you were having thoughts of suicide.</div>
+                        <div class="copyables choosables">Many people struggle with those thoughts.</div>
+                        <div class="copyables">Do you have any plans to act on them?</div>
+                    </p>
+                    <p>
+                        <em>If yes, <a href="#assessFully">assess fully</a>.</em>
+                    </p>
+                    </label>
+                    <input type="radio" name="assessSafetyBug" id="ynst" />
+
+                    <p>
+                        <em>If no to both questions, continue to
+                            <a href="#" onclick="showStageInfoCard('gatherInfo');">
+                                gather info.
+                            </a>
+                        </em>
+                    </p>
+
+                    <h2 id="assessFully">Full Assessment</h2>
+                    
+                    <label for="means">
+                        <h3>Means</h3>
+                        <p>
+                            <div class="copyables">Lots of people deal with these thoughts, and I want you to know that you're not alone. I'm wondering, how are you thinking of killing yourself?</div>
+                        </p>
+                    </label>
+                    <input type="radio" name="assessSafetyBug" id="means"/>
+                    
+                    <label for="meansAccessible1">
+                        <i>If contact has means in mind.</i>
+                    
+                        <p>
+                            <div class="copyables">Thanks for letting me know. Where</div>
+                            (
+                                <div class="copyables choosables">is the</div>
+                                /
+                                <div class="copyables choosables">are the</div>
+                            )
+                            <div class="manuals">means</div>
+                            <div class="copyables">right now?</div>
+                        </p>
+                    </label>
+                    <input type="radio" name="assessSafetyBug" id="meansAccessible1" />
+
+                    <label for="meansAccessible2">
+                        <p>
+                            <div class="copyables">Got it. And where are you right now,</div>
+                            <div class="manuals">name</div>
+                            <div class="copyables">?</div>
+                        </p>
+                    </label>
+                    <input type="radio" name="assessSafetyBug" id="meansAccessible2" />
+
+                    <label for="safetyPlanningIfMeansInMind">
+                        <h4>Address Safety</h4>
+                        <i>If means present:</i>
+                    
+                        <p>
+                            <div class="copyables">I really appreciate you sharing that with me, and want to ensure your safety. How would it feel to</div>
+                            (
+                                <div class="copyables choosables">move</div>
+                                /
+                                <div class="copyables choosables">cover</div>
+                            )
+                            <div class="manuals">means</div>
+                            <div class="copyables">so that</div>
+                            (
+                                <div class="copyables choosables">you're in another room</div>
+                                /
+                                <div class="copyables choosables">it's out of reach</div>
+                                /
+                                <div class="copyables choosables">it's out of sight</div>
+                            )
+                            <div class="copyables">while we chat?</div>
+                        </p>
+
+                        <p>
+                            <div class="copyables">Thank you. How about you let me know if you think about</div>
+                            (
+                                <div class="copyables choosables">uncovering</div>
+                                /
+                                <div class="copyables choosables">picking up</div>
+                                /
+                                <div class="manuals">reaching the means</div>
+                            )
+                            <div class="copyables">while we're chatting?</div>
+                        </p>
+
+                        <i>If means not present, but accessible:</i>
+                    
+                        <p>
+                            <div class="copyables">Okay. How would it feel to let me know if you think about</div>
+                            (
+                                <div class="copyables choosables">going to the roof</div>
+                                /
+                                <div class="manuals">accessing the means</div>
+                            )
+                            <div class="copyables">while we're chatting?</div>
+                        </p>
+                    </label>
+                    <input type="radio" name="assessSafetyBug" id="safetyPlanningIfMeansInMind" />
+
+                    <label for="when">
+                        <h3>Ask About Timeframe</h3>
+                        <p>
+                            <div class="copyables">I really appreciate your openness with me. It sounds like things have been pretty overwhelming recently because of</div>
+                            <div class="manuals">issues</div><div class="copyables">.  When are you thinking of killing yourself?</div>
+                        </p>
+                    </label>
+                    <input type="radio" name="assessSafetyBug" id="when"/>
+
+
                 </div>
-                
-                <h3>Open-Ended Questions</h3>
 
-                <h4>What</h4>
-                <div class="copyables">What does that feel like for you?</div><br/>
-                <div class="copyables">What does that mean to you?</div><br/>
-                <div class="copyables">What happened?</div><br/>
-                <div class="copyables">What do you imagine when you think about what that might look like?</div><br/>
-                <div class="copyables">What does that look like for you?</div><br/>
-                <div class="copyables">What would it look like for you to</div><br/>
-                <div class="copyables">What's your relationship like with</div><br/>
-                <div class="copyables">What's</div>
-                <div class="manuals">person</div>
-                <div class="copyables">'s name?</div><br/>
-                <div class="copyables">What has</div>
-                <div class="manuals">experience</div>
-                <div class="copyables">been like for you?</div><br/>
-                <div class="copyables">What was it like for you to come out as</div><br/>
-                <div class="copyables">What was it like for you to realize you were</div><br/>
-                <div class="copyables">What has identifying as</div>
-                <div class="manuals">identity</div>
-                <div class="copyables">been like for you?</div><br/>
-                <div class="copyables">What brought on these feelings of</div><br/>
-                <div class="copyables">What has been making you feel like</div><br/>
-                
-                <div class="copyables">What was</div>
-                <div class="manuals">experience</div>
-                <div class="copyables"> like for you</div>
-                (
-                    <div class="copyables choosables">in the past?</div>
-                    /
-                    <div class="copyables choosables">before this happened?</div>
-                )
-                <br/>
+                <div class="stageCards" id="gatherInfoCard">
+                    <h2>Gather Info</h2>
 
-                <div class="copyables">You mentioned feeling scared about</div><br/>
-                <div class="copyables">What are your concerns about</div><br/>
-                <div class="copyables">What goes through your mind when you</div><br/>
-                <div class="copyables">What do you remember most about</div><br/>
-                <div class="copyables">What happened before</div><br/>
-                <div class="copyables">What did you say when</div><br/>
-                <div class="copyables">What did you do after</div><br/>
-
-                <h4>Who</h4>
-                <div class="copyables">Who are some supportive people in your life?</div><br/>
-                <div class="copyables">Who are some people you've talked to about this?</div><br/>
-                <div class="copyables">Who have you talked to about this?</div><br/>
-                <div class="copyables">Who knows what's going on?</div><br/>
-
-                <h4>How</h4>
-                <div class="copyables">How did it feel when</div><br/>
-                <div class="copyables">How are you feeling now?</div><br/>
-                <div class="copyables">How did you react when</div><br/>
-                <div class="copyables">How does it feel to think about</div><br/>
-                <div class="copyables">How have your feelings about this changed since</div><br/>
-                <div class="copyables">How did</div>
-                <div class="manuals">person</div>
-                <div class="copyables">react to</div><br/>
-
-                <h4>When</h4>
-                <div class="copyables">When did you first start to feel this way?</div><br/>
-                <div class="copyables">When did you first notice</div><br/>
-
-                <h4>Tell Me More</h4>
-                <div class="copyables">Tell me more about how you're feeling about</div><br/>
-                <div class="copyables">Tell me more about your relationship with</div><br/>
-
-                <h3>Clarifying Questions</h3>
-                <div class="copyables">I hear a lot is going on. What was going on right before you contacted us today?</div><br/>
-                <div class="copyables">When you say you're</div>
-                <div class="manuals">identity</div>
-                <div class="copyables">, what does that mean to you?</div><br/>
-                <div class="copyables">You mentioned that you feel</div>
-                <div class="manuals">feeling</div>
-                <div class="copyables">. What does that feel like for you?</div><br/>
-                <div class="copyables">You said you've talked to</div>
-                <div class="manuals">person</div>
-                <div class="copyables">about this a little bit. What's your relationship with them like?</div><br/>
-                <div class="copyables">Earlier you mentioned</div>
-                <div class="manuals">situation</div>
-                <div class="copyables">. Tell me more about that.</div>
-
-                <h3>Support Network Questions</h3>
-                <i>Ask these after at least 2 other questions about the presenting issue.</i>
-
-                <h4>Establishing a Support Network</h4>
-                <div class="copyables">Who in your life do you feel comfortable talking to about this?</div><br/>
-                <div class="copyables">Who else knows how you're feeling?</div><br/>
-                <div class="copyables">Who in your life would you like to share this with?</div><br/>
-                <div class="copyables">Who else knows what's going on?</div><br/>
-                <div class="copyables">When you think of supportive people in your life, who comes to mind?</div>
-
-                <h4>Support Network Details</h4>
-                <div class="copyables">How do you think the conversation would go if you told them</div><br/>
-                <div class="copyables">What would it be like to share this with them?</div><br/>
-                <div class="copyables">How would it feel to tell them</div><br/>
-                <div class="copyables">What do you imagine might happen if you told them</div><br/>
-                <div class="copyables">Who might be supportive of your decision to</div><br/>
-                <div class="copyables">How might you prepare to have this conversation?</div>
-
-            </div>
-
-            <div class="stageCards" id="safetyPlanCard">
-                <h2>Safety Plan</h2>
-
-                <p>
                     <div class="copyables">
-                        You took a big step to keep yourself safe by reaching out today, 
+                        Thank you for being so open with me. Tell me more about
                     </div>
                     <div class="manuals">
-                        name
+                        presenting issue
                     </div>
-                    <div class="copyables">
-                        , and it sounds like these feelings come up for you pretty often
-                    </div>
-                    <div class="copyables">
-                        . How would you feel about coming up with a plan that you can use to help keep safe the next time you're thinking about
-                    </div>
+                    
+                    <h3>Open-Ended Questions</h3>
+
+                    <h4>What</h4>
+                    <div class="copyables">What does that feel like for you?</div><br/>
+                    <div class="copyables">What does that mean to you?</div><br/>
+                    <div class="copyables">What happened?</div><br/>
+                    <div class="copyables">What do you imagine when you think about what that might look like?</div><br/>
+                    <div class="copyables">What does that look like for you?</div><br/>
+                    <div class="copyables">What would it look like for you to</div><br/>
+                    <div class="copyables">What's your relationship like with</div><br/>
+                    <div class="copyables">What's</div>
+                    <div class="manuals">person</div>
+                    <div class="copyables">'s name?</div><br/>
+                    <div class="copyables">What has</div>
+                    <div class="manuals">experience</div>
+                    <div class="copyables">been like for you?</div><br/>
+                    <div class="copyables">What was it like for you to come out as</div><br/>
+                    <div class="copyables">What was it like for you to realize you were</div><br/>
+                    <div class="copyables">What has identifying as</div>
+                    <div class="manuals">identity</div>
+                    <div class="copyables">been like for you?</div><br/>
+                    <div class="copyables">What brought on these feelings of</div><br/>
+                    <div class="copyables">What has been making you feel like</div><br/>
+                    
+                    <div class="copyables">What was</div>
+                    <div class="manuals">experience</div>
+                    <div class="copyables"> like for you</div>
                     (
-                        <div class="choosables">
-                            suicide
-                        </div>/
-                        <div class="manuals">
-                            harm
+                        <div class="copyables choosables">in the past?</div>
+                        /
+                        <div class="copyables choosables">before this happened?</div>
+                    )
+                    <br/>
+
+                    <div class="copyables">You mentioned feeling scared about</div><br/>
+                    <div class="copyables">What are your concerns about</div><br/>
+                    <div class="copyables">What goes through your mind when you</div><br/>
+                    <div class="copyables">What do you remember most about</div><br/>
+                    <div class="copyables">What happened before</div><br/>
+                    <div class="copyables">What did you say when</div><br/>
+                    <div class="copyables">What did you do after</div><br/>
+
+                    <h4>Who</h4>
+                    <div class="copyables">Who are some supportive people in your life?</div><br/>
+                    <div class="copyables">Who are some people you've talked to about this?</div><br/>
+                    <div class="copyables">Who have you talked to about this?</div><br/>
+                    <div class="copyables">Who knows what's going on?</div><br/>
+
+                    <h4>How</h4>
+                    <div class="copyables">How did it feel when</div><br/>
+                    <div class="copyables">How are you feeling now?</div><br/>
+                    <div class="copyables">How did you react when</div><br/>
+                    <div class="copyables">How does it feel to think about</div><br/>
+                    <div class="copyables">How have your feelings about this changed since</div><br/>
+                    <div class="copyables">How did</div>
+                    <div class="manuals">person</div>
+                    <div class="copyables">react to</div><br/>
+
+                    <h4>When</h4>
+                    <div class="copyables">When did you first start to feel this way?</div><br/>
+                    <div class="copyables">When did you first notice</div><br/>
+
+                    <h4>Tell Me More</h4>
+                    <div class="copyables">Tell me more about how you're feeling about</div><br/>
+                    <div class="copyables">Tell me more about your relationship with</div><br/>
+
+                    <h3>Clarifying Questions</h3>
+                    <div class="copyables">I hear a lot is going on. What was going on right before you contacted us today?</div><br/>
+                    <div class="copyables">When you say you're</div>
+                    <div class="manuals">identity</div>
+                    <div class="copyables">, what does that mean to you?</div><br/>
+                    <div class="copyables">You mentioned that you feel</div>
+                    <div class="manuals">feeling</div>
+                    <div class="copyables">. What does that feel like for you?</div><br/>
+                    <div class="copyables">You said you've talked to</div>
+                    <div class="manuals">person</div>
+                    <div class="copyables">about this a little bit. What's your relationship with them like?</div><br/>
+                    <div class="copyables">Earlier you mentioned</div>
+                    <div class="manuals">situation</div>
+                    <div class="copyables">. Tell me more about that.</div>
+
+                    <h3>Support Network Questions</h3>
+                    <i>Ask these after at least 2 other questions about the presenting issue.</i>
+
+                    <h4>Establishing a Support Network</h4>
+                    <div class="copyables">Who in your life do you feel comfortable talking to about this?</div><br/>
+                    <div class="copyables">Who else knows how you're feeling?</div><br/>
+                    <div class="copyables">Who in your life would you like to share this with?</div><br/>
+                    <div class="copyables">Who else knows what's going on?</div><br/>
+                    <div class="copyables">When you think of supportive people in your life, who comes to mind?</div>
+
+                    <h4>Support Network Details</h4>
+                    <div class="copyables">How do you think the conversation would go if you told them</div><br/>
+                    <div class="copyables">What would it be like to share this with them?</div><br/>
+                    <div class="copyables">How would it feel to tell them</div><br/>
+                    <div class="copyables">What do you imagine might happen if you told them</div><br/>
+                    <div class="copyables">Who might be supportive of your decision to</div><br/>
+                    <div class="copyables">How might you prepare to have this conversation?</div>
+
+                </div>
+
+                <div class="stageCards" id="safetyPlanCard">
+                    <h2>Safety Plan</h2>
+
+                    <p>
+                        <div class="copyables">
+                            You took a big step to keep yourself safe by reaching out today, 
                         </div>
+                        <div class="manuals">
+                            name
+                        </div>
+                        <div class="copyables">
+                            , and it sounds like these feelings come up for you pretty often
+                        </div>
+                        <div class="copyables">
+                            . How would you feel about coming up with a plan that you can use to help keep safe the next time you're thinking about
+                        </div>
+                        (
+                            <div class="choosables">
+                                suicide
+                            </div>/
+                            <div class="manuals">
+                                harm
+                            </div>
+                        )
+                        <div class="copyables">
+                            ?
+                        </div>
+                    </p>
+
+                    <h3>Signs</h3>
+
+                    <p>
+                        <div class="copyables">
+                            People may notice differences in the way they feel or behave prior to experiencing a crisis. What changes do you notice for yourself that could indicate that you're not doing so well?
+                        </div>
+                    </p>
+
+                    <p>
+                        <div class="copyables">
+                            You mentioned that you're feeling more
+                        </div>
+                        <div class="manuals">
+                            emotion
+                        </div>
+                        <div class="copyables">
+                            than usual. Does that feel like a sign that you may be experiencing a crisis?
+                        </div>
+                    </p>
+
+                    <p>
+                        <div class="copyables">
+                            Recognizing how you feel or might behave differently when these thoughts come up can be a helpful way to know when to use a safety plan. What are some things that you notice change for you when you're experiencing a crisis?
+                        </div>
+                    </p>
+                    
+                    <h3>Coping</h3>
+
+                    <p>
+                        <div class="copyables">
+                            Earlier you mentioned that you like to
+                        </div>
+                        <div class="manuals">
+                            activity
+                        </div>
+                        <div class="copyables">
+                            . Would you be willing to add that to your safety plan as something you can do when these thoughts come up?
+                        </div>
+                    </p>
+
+                    <p>
+                        <div class="copyables">
+                            What kinds of things have you tried in the past that have helped you when you're feeling suicidal?
+                        </div>
+                    </p>
+
+                    <p>
+                        <div class="copyables">
+                            It's okay to not know what to do for yourself. Some common things that help people feel better include drawing, spending time with a pet, listening to music, guided meditation, or exercise. Do any of these stand out as maybe being helpful for you, or something you'd be willing to try?
+                        </div>
+                    </p>
+
+                    
+
+                    
+                    
+
+                    <!-- some of the following could be useful in gather info -->
+                    <h2>integrate some of this into gather info</h2>
+
+                    <div class="copyables">It sounds like</div>
+                    <div class="manuals">coping mechanism</div>
+                    <div class="copyables">is something you really value. What would it be like to</div>
+                    <div class="manuals">harm reduction technique</div>
+                    <div class="copyables">next time you</div>
+                    <div class="manuals">coping mechanism</div><br/><br/>
+                    <div class="copyables">It sounds like thinking of ways to reduce your</div>
+                    <div class="manuals">behavior</div>
+                    <div class="copyables">is too much right now. I'd like to hear more about what's been going on for you and how the</div>
+                    <div class="manuals">behavior</div>
+                    <div class="copyables">makes you feel.</div>
+
+                    <h3>Restoring Agency</h3>
+
+                    <h4>Identifying What Empowers</h4>
+                    <div class="copyables">It sounds like you're feeling powerless in this situation.</div><br/>
+                    <div class="copyables">What are some things that make you feel powerful?</div><br/>
+                    <div class="copyables">When do you feel most powerful?</div><br/>
+                    <div class="copyables">Where do you feel more powerful?</div><br/>
+                    
+                    <h4>Identifying Coping Strategies</h4>
+                    <div class="copyables">I can understand it's really difficult to cope with things out of our control.</div><br/>
+                    <div class="copyables">What are some actions that help you regain a sense of control?</div><br/>
+                    <div class="copyables">When do you feel most in control?</div><br/>
+                    <div class="copyables">Where do you feel most in control?</div><br/>
+
+                    <h4>Exploring Safety Plans</h4>
+                    <div class="copyables">If </div>
+                    <div class="manuals">worst  case scenario</div>
+                    <div class="copyables"> happens, what are some other steps you can take that don't involve </div>
+                    <div class="manuals">suicide plan</div><div class="copyables">? </div><br/>
+                    <div class="copyables">If </div>
+                    <div class="manuals">worst case scenario</div>
+                    <div class="copyables"> happens, what would it be like to try </div>
+                    <div class="manuals">safety plan</div>
+                    <div class="copyables"> first? </div><br/>
+                    <div class="copyables">If </div>
+                    <div class="manuals">safety plan</div>
+                    <div class="copyables"> doesn't feel like enough, how would it feel to reach back out to us? </div><br/>
+
+                    <h3>Offering Resources</h3>
+
+                    <h4>Social Media Groups</h4>
+                    <div class="copyables">It sounds like you want to meet other people who share your identity. I have a resource that might be of interest. Are you open to hearing about that?</div><br/>
+                    <div class="copyables">Sometimes meeting other people with similar experiences can be helpful. I know a resource that might help with that. Would you be interested in that?</div><br/>
+
+                    <h4>Resource Centers</h4>
+                    <div class="copyables">Would you be interested in a place to find resources and information for LGBTQ+ youth?</div><br/>
+
+                    <h3>Safety Planning</h3>
+
+                    <h4>Responding to Resistance</h4>
+                    <div class="copyables">It can sometimes be tough to think about ways to stay safe. What feelings come up for you when I ask about your safety?</div><br/>
+                    <div class="copyables">Is there something you would like for me to know about what safety or feeling safe means to you?</div><br/><br/>
+
+                    <h4>Responding to "it doesn't matter"</h4>
+                    <div class="copyables">I'm hearing that thinking about ways to stay safe doesn't seem really important to you right now. Tell me more about why that feels unimportant?</div><br/>
+                    <div class="copyables">Is there something that you feel is more important for us to talk about right now?</div><br/>
+                    <div class="copyables">It sounds like it's hard to think about what you can do to stay safe. I want you to know that I care about you and your safety, and I'm glad you reached out today. If you're open to it, maybe we can work together to think of some things people can do to feel safe or connect to support, and see if there's anything that you'd be interested in trying out with me or on your own after our conversation?</div><br/>
+                    
+                    <h4>Affirming</h4>
+                    <div class="copyables">In spite of everything going on right now, your reaching out and talking with me is a step you have taken to address your safety. That is not always easy, and I think it says a lot that you were willing to reach out to us today. We are always here for you when you need someone to talk to.</div><br/>
+                    <div class="copyables">While it sounds like safety is difficult to think about, I want to thank you for reaching out today. That is a huge step to take in addressing your safety. As you have been managing these thoughts for a while, I wonder if there are some other things you've done in the past to get through these difficult moments, and anything we might be able to try out today?</div><br/>
+
+                    <h4>Probing Needs</h4>
+                    <div class="copyables">While our focus is on helping folks remain safe during a crisis, I hear that safety is not a topic you are interested in talking about right now.  Maybe you can tell me more about why you reached out tonight, so that I can better support you during this conversation?</div><br/>
+
+                    <h4>Backing Up To Gathering Information</h4>
+                    <div class="copyables">It sounds like thinking of ways to stay safe feels like too much right now. I'd like to hear more about what's been going on for you. What thoughts were going through your head as you reached out to us today?</div><br/>
+                    
+                </div>
+
+                <div class="stageCards" id="reassessSafetyCard">
+
+                    <h2>Risk Reassessment</h2>
+
+                    <i>Only for high-risk and immediate situations.</i>
+
+                    <p>
+                        <div class="copyables">
+                            Earlier you mentioned your plan to
+                        </div>
+                        <div class="manuals">
+                            plan
+                        </div>
+                        <div class="copyables">
+                            . How are you feeling about that plan now?
+                        </div>
+                    </p>
+                    
+                    <p>
+                        <div class="copyables">
+                            We've been talking for a while, and I want to circle back to when you mentioned earlier that you were planning to 
+                        </div>
+                        <div class="manuals">
+                            plan
+                        </div>
+                        <div class="copyables">
+                            . How are you feeling about that plan now?
+                        </div>
+                    </p>
+                    
+
+                    <h3>Clarifying</h3>
+                    <div class="copyables">When you say</div>
+                    (
+                        <div class="copyables choosables">you're fine</div>
+                        /
+                        <div class="copyables choosables">you feel better</div>
+                        /
+                        <div class="manuals">reflect language</div>
                     )
                     <div class="copyables">
-                        ?
+                        , do you mean that you are no longer planning on following through with the plan we discussed earlier?
                     </div>
-                </p>
 
-                <h3>Signs</h3>
-
-                <p>
+                    <h3>Further Clarifying</h3>
                     <div class="copyables">
-                        People may notice differences in the way they feel or behave prior to experiencing a crisis. What changes do you notice for yourself that could indicate that you're not doing so well?
+                        Do you mean that you are no longer planning on following through with the plan we discussed earlier within the next two days?
                     </div>
-                </p>
 
-                <p>
-                    <div class="copyables">
-                        You mentioned that you're feeling more
-                    </div>
-                    <div class="manuals">
-                        emotion
-                    </div>
-                    <div class="copyables">
-                        than usual. Does that feel like a sign that you may be experiencing a crisis?
-                    </div>
-                </p>
-
-                <p>
-                    <div class="copyables">
-                        Recognizing how you feel or might behave differently when these thoughts come up can be a helpful way to know when to use a safety plan. What are some things that you notice change for you when you're experiencing a crisis?
-                    </div>
-                </p>
-                
-                <h3>Coping</h3>
-
-                <p>
-                    <div class="copyables">
-                        Earlier you mentioned that you like to
-                    </div>
-                    <div class="manuals">
-                        activity
-                    </div>
-                    <div class="copyables">
-                        . Would you be willing to add that to your safety plan as something you can do when these thoughts come up?
-                    </div>
-                </p>
-
-                <p>
-                    <div class="copyables">
-                        What kinds of things have you tried in the past that have helped you when you're feeling suicidal?
-                    </div>
-                </p>
-
-                <p>
-                    <div class="copyables">
-                        It's okay to not know what to do for yourself. Some common things that help people feel better include drawing, spending time with a pet, listening to music, guided meditation, or exercise. Do any of these stand out as maybe being helpful for you, or something you'd be willing to try?
-                    </div>
-                </p>
-
-                
-
-                
-                
-
-                <!-- some of the following could be useful in gather info -->
-                <h2>integrate some of this into gather info</h2>
-
-                <div class="copyables">It sounds like</div>
-                <div class="manuals">coping mechanism</div>
-                <div class="copyables">is something you really value. What would it be like to</div>
-                <div class="manuals">harm reduction technique</div>
-                <div class="copyables">next time you</div>
-                <div class="manuals">coping mechanism</div><br/><br/>
-                <div class="copyables">It sounds like thinking of ways to reduce your</div>
-                <div class="manuals">behavior</div>
-                <div class="copyables">is too much right now. I'd like to hear more about what's been going on for you and how the</div>
-                <div class="manuals">behavior</div>
-                <div class="copyables">makes you feel.</div>
-
-                <h3>Restoring Agency</h3>
-
-                <h4>Identifying What Empowers</h4>
-                <div class="copyables">It sounds like you're feeling powerless in this situation.</div><br/>
-                <div class="copyables">What are some things that make you feel powerful?</div><br/>
-                <div class="copyables">When do you feel most powerful?</div><br/>
-                <div class="copyables">Where do you feel more powerful?</div><br/>
-                
-                <h4>Identifying Coping Strategies</h4>
-                <div class="copyables">I can understand it's really difficult to cope with things out of our control.</div><br/>
-                <div class="copyables">What are some actions that help you regain a sense of control?</div><br/>
-                <div class="copyables">When do you feel most in control?</div><br/>
-                <div class="copyables">Where do you feel most in control?</div><br/>
-
-                <h4>Exploring Safety Plans</h4>
-                <div class="copyables">If </div>
-                <div class="manuals">worst  case scenario</div>
-                <div class="copyables"> happens, what are some other steps you can take that don't involve </div>
-                <div class="manuals">suicide plan</div><div class="copyables">? </div><br/>
-                <div class="copyables">If </div>
-                <div class="manuals">worst case scenario</div>
-                <div class="copyables"> happens, what would it be like to try </div>
-                <div class="manuals">safety plan</div>
-                <div class="copyables"> first? </div><br/>
-                <div class="copyables">If </div>
-                <div class="manuals">safety plan</div>
-                <div class="copyables"> doesn't feel like enough, how would it feel to reach back out to us? </div><br/>
-
-                <h3>Offering Resources</h3>
-
-                <h4>Social Media Groups</h4>
-                <div class="copyables">It sounds like you want to meet other people who share your identity. I have a resource that might be of interest. Are you open to hearing about that?</div><br/>
-                <div class="copyables">Sometimes meeting other people with similar experiences can be helpful. I know a resource that might help with that. Would you be interested in that?</div><br/>
-
-                <h4>Resource Centers</h4>
-                <div class="copyables">Would you be interested in a place to find resources and information for LGBTQ+ youth?</div><br/>
-
-                <h3>Safety Planning</h3>
-
-                <h4>Responding to Resistance</h4>
-                <div class="copyables">It can sometimes be tough to think about ways to stay safe. What feelings come up for you when I ask about your safety?</div><br/>
-                <div class="copyables">Is there something you would like for me to know about what safety or feeling safe means to you?</div><br/><br/>
-
-                <h4>Responding to "it doesn't matter"</h4>
-                <div class="copyables">I'm hearing that thinking about ways to stay safe doesn't seem really important to you right now. Tell me more about why that feels unimportant?</div><br/>
-                <div class="copyables">Is there something that you feel is more important for us to talk about right now?</div><br/>
-                <div class="copyables">It sounds like it's hard to think about what you can do to stay safe. I want you to know that I care about you and your safety, and I'm glad you reached out today. If you're open to it, maybe we can work together to think of some things people can do to feel safe or connect to support, and see if there's anything that you'd be interested in trying out with me or on your own after our conversation?</div><br/>
-                
-                <h4>Affirming</h4>
-                <div class="copyables">In spite of everything going on right now, your reaching out and talking with me is a step you have taken to address your safety. That is not always easy, and I think it says a lot that you were willing to reach out to us today. We are always here for you when you need someone to talk to.</div><br/>
-                <div class="copyables">While it sounds like safety is difficult to think about, I want to thank you for reaching out today. That is a huge step to take in addressing your safety. As you have been managing these thoughts for a while, I wonder if there are some other things you've done in the past to get through these difficult moments, and anything we might be able to try out today?</div><br/>
-
-                <h4>Probing Needs</h4>
-                <div class="copyables">While our focus is on helping folks remain safe during a crisis, I hear that safety is not a topic you are interested in talking about right now.  Maybe you can tell me more about why you reached out tonight, so that I can better support you during this conversation?</div><br/>
-
-                <h4>Backing Up To Gathering Information</h4>
-                <div class="copyables">It sounds like thinking of ways to stay safe feels like too much right now. I'd like to hear more about what's been going on for you. What thoughts were going through your head as you reached out to us today?</div><br/>
-                
-            </div>
-
-            <div class="stageCards" id="reassessSafetyCard">
-
-                <h2>Risk Reassessment</h2>
-
-                <i>Only for high-risk and immediate situations.</i>
-
-                <p>
-                    <div class="copyables">
-                        Earlier you mentioned your plan to
-                    </div>
-                    <div class="manuals">
-                        plan
-                    </div>
-                    <div class="copyables">
-                        . How are you feeling about that plan now?
-                    </div>
-                </p>
-                
-                <p>
-                    <div class="copyables">
-                        We've been talking for a while, and I want to circle back to when you mentioned earlier that you were planning to 
-                    </div>
-                    <div class="manuals">
-                        plan
-                    </div>
-                    <div class="copyables">
-                        . How are you feeling about that plan now?
-                    </div>
-                </p>
-                
-
-                <h3>Clarifying</h3>
-                <div class="copyables">When you say</div>
-                (
-                    <div class="copyables choosables">you're fine</div>
-                    /
-                    <div class="copyables choosables">you feel better</div>
-                    /
-                    <div class="manuals">reflect language</div>
-                )
-                <div class="copyables">
-                    , do you mean that you are no longer planning on following through with the plan we discussed earlier?
                 </div>
 
-                <h3>Further Clarifying</h3>
-                <div class="copyables">
-                    Do you mean that you are no longer planning on following through with the plan we discussed earlier within the next two days?
+                <div class="stageCards" id="closureCard">
+                    <h2>Closure</h2>
+
+                    <h3>Planning Immediate Self-Care</h3>
+                    <div class="copyables">What will you do to take good care of yourself after we're done chatting?</div>
+                    
+                    <h3>Summarizing Conversation</h3>
+                    <div class="copyables">You've been dealing with</div>
+                    <div class="manuals">issues</div>
+                    <div class="copyables">, and feeling</div>
+                    <div class="manuals">emotions</div>
+                    <div class="copyables">. You've coped by</div>
+                    <div class="manuals">coping strategies</div>
+                    <div class="copyables">, and we also discussed </div>
+                    <div class="manuals">coping strategies</div>
+                    <div class="copyables">. Your plan is to</div>
+                    <div class="manuals">safety plan</div>
+
+                    <h3>Leaving the Door Open</h3>
+                    <div class="copyables">Thank you for reaching out, for being so open and honest, and for being yourself. We're available anytime you're in crisis</div>
+
+                    <h3>Silent Chat</h3>
+                    
+                    <h4>Attempting to Reengage</h4>
+                    <i>Send this after 2 to 3 minutes of silence.</i><br/><br/>
+                                    
+                    <!-- O.C. -->
+                    <div class="copyables">Hey, just checking in. Is now a good time to chat?</div>
+                    <br/>
+
+                    <div class="copyables">It's been a couple of minutes, and I'm wondering, are you still there?</div>
+                    <br/>
+
+                    <div class="copyables">I haven't heard from you in a bit, do you still want to chat with me?</div>
+                    <br/>
+
+                    <div class="copyables">Hey, it's been a few minutes and I just wanted to check in. If you're still there and would like to continue, please send a reply.</div>
+                    <br/>
+
+                    <div class="copyables">Hey there, I've noticed there's been some time between your responses and I want this to be a meaningful conversation for you. Is now still a good time to talk?</div>
+                    
+
+                    <h4>Closing Silent Chat</h4>
+                    <i>If your welcome message was greeted with silence, send 5 minutes after your welcome message.</i><br/>
+                    <i>If contact went silent during conversation, send this 10 minutes after your re-engagement message.</i><br/><br/>
+                    <div class="copyables">I have to end the chat now because I haven't gotten a response in quite awhile, but you are welcome to reach out again any time you're in crisis. We're available anytime you're in crisis at</div>
+                    <div class="manuals">organization</div>
+                    <div class="copyables">. Please call 911 if it's an emergency.</div>
+
                 </div>
 
-            </div>
+                <div class="stageCards" id="disclosureCard">
+                    <h2>Discl*</h2>
 
-            <div class="stageCards" id="closureCard">
-                <h2>Closure</h2>
+                    <h3>Disclaimers</h3>
 
-                <h3>Planning Immediate Self-Care</h3>
-                <div class="copyables">What will you do to take good care of yourself after we're done chatting?</div>
-                
-                <h3>Summarizing Conversation</h3>
-                <div class="copyables">You've been dealing with</div>
-                <div class="manuals">issues</div>
-                <div class="copyables">, and feeling</div>
-                <div class="manuals">emotions</div>
-                <div class="copyables">. You've coped by</div>
-                <div class="manuals">coping strategies</div>
-                <div class="copyables">, and we also discussed </div>
-                <div class="manuals">coping strategies</div>
-                <div class="copyables">. Your plan is to</div>
-                <div class="manuals">safety plan</div>
+                    <div class="copyables">Here is a resource that you might find helpful for your situation.</div>
+                    <div class="manuals">Organization</div>
+                    <div class="copyables">does not endorse any information or views that you might find on the website.</div>
+                    <br/>
 
-                <h3>Leaving the Door Open</h3>
-                <div class="copyables">Thank you for reaching out, for being so open and honest, and for being yourself. We're available anytime you're in crisis</div>
+                    <div class="copyables">Here is a resource that you might find helpful for your situation. Please note,</div>
+                    <div class="manuals">Organization</div>
+                    <div class="copyables">is not affiliated with</div>
+                    <div class="manuals">resource</div>
+                    <div class="copyables">and does not endorse any information or views they may have available.
+                    </div>
+                    <br/>
 
-                <h3>Silent Chat</h3>
-                
-                <h4>Attempting to Reengage</h4>
-                <i>Send this after 2 to 3 minutes of silence.</i><br/><br/>
-                                
-                <!-- O.C. -->
-                <div class="copyables">Hey, just checking in. Is now a good time to chat?</div>
-                <br/>
+                    <div class="copyables">Just as a disclaimer,</div>
+                    <div class="manuals">Organization</div>
+                    <div class="copyables">is not affiliated with this resource and can't endorse any information or views</div>
+                    <div class="manuals">resource</div>
+                    <div class="copyables">may have available. Here's the link:</div>
+                    <div class="manuals">URL</div>
 
-                <div class="copyables">It's been a couple of minutes, and I'm wondering, are you still there?</div>
-                <br/>
+                    <h3>Disclosures</h3>
 
-                <div class="copyables">I haven't heard from you in a bit, do you still want to chat with me?</div>
-                <br/>
-
-                <div class="copyables">Hey, it's been a few minutes and I just wanted to check in. If you're still there and would like to continue, please send a reply.</div>
-                <br/>
-
-                <div class="copyables">Hey there, I've noticed there's been some time between your responses and I want this to be a meaningful conversation for you. Is now still a good time to talk?</div>
-                
-
-                <h4>Closing Silent Chat</h4>
-                <i>If your welcome message was greeted with silence, send 5 minutes after your welcome message.</i><br/>
-                <i>If contact went silent during conversation, send this 10 minutes after your re-engagement message.</i><br/><br/>
-                <div class="copyables">I have to end the chat now because I haven't gotten a response in quite awhile, but you are welcome to reach out again any time you're in crisis. We're available anytime you're in crisis at</div>
-                <div class="manuals">organization</div>
-                <div class="copyables">. Please call 911 if it's an emergency.</div>
-
-            </div>
-
-            <div class="stageCards" id="disclosureCard">
-                <h2>Discl*</h2>
-
-                <h3>Disclaimers</h3>
-
-                <div class="copyables">Here is a resource that you might find helpful for your situation.</div>
-                <div class="manuals">Organization</div>
-                <div class="copyables">does not endorse any information or views that you might find on the website.</div>
-                <br/>
-
-                <div class="copyables">Here is a resource that you might find helpful for your situation. Please note,</div>
-                <div class="manuals">Organization</div>
-                <div class="copyables">is not affiliated with</div>
-                <div class="manuals">resource</div>
-                <div class="copyables">and does not endorse any information or views they may have available.
+                    <div class="copyables">It sounds like things are really rough at home right now, and I definitely want to hear more about that, but I also want to let you know that depending on what you share we may need to make a report to an agency in your area who is there to keep you safe. You can share as much or as little as you like. I'm here to listen.</div>
                 </div>
-                <br/>
-
-                <div class="copyables">Just as a disclaimer,</div>
-                <div class="manuals">Organization</div>
-                <div class="copyables">is not affiliated with this resource and can't endorse any information or views</div>
-                <div class="manuals">resource</div>
-                <div class="copyables">may have available. Here's the link:</div>
-                <div class="manuals">URL</div>
-
-                <h3>Disclosures</h3>
-
-                <div class="copyables">It sounds like things are really rough at home right now, and I definitely want to hear more about that, but I also want to let you know that depending on what you share we may need to make a report to an agency in your area who is there to keep you safe. You can share as much or as little as you like. I'm here to listen.</div>
             </div>
         </div>
-    </div>
+
+    </body>
+    
 </html>
 
