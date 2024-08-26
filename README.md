@@ -1,5 +1,5 @@
 # ChatBuilder v0.2
- Structures chat service work.
+Structures chat service work.
 
 
 ## How to Install
@@ -78,8 +78,8 @@ This app is under construction. Planned features include:
 Have ideas for improvement? Write me at <carryingtheflame@protonmail.com>
 
 ### Privacy and Security
-Security and privacy are paramount to chat services, and this codebase was designed to support privacy and security goals in a few ways.
+Security and privacy are paramount to chat services, and this codebase was designed to support privacy and security goals in a couple ways.
 
-First, this code runs entirely on the user's computer, in their Web browser. This ensures there are no marginal risks associated with sending data over the Internet.
+First, this code runs entirely on the user's computer, in their Web browser--no installation required. This ensures there are no marginal risks associated with sending data over the Internet or with installing software.
 
 Second, this code does not rely on external libraries--they are not linked or copied in. This eliminates risks associated with external libraries which send private data to advertising agencies such as Facebook ([true story](https://www.statnews.com/2023/06/13/suicide-hotlines-988-data-privacy-facebook/)).
