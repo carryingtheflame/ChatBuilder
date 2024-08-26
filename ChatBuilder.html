@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 
-<!-- TODO: I want a field to type in the name of your organization so it can autofill from then on. -->
-
     <head>
         <!--script src="jquery-3.7.1.min.js"></script-->
         <meta charset="UTF-8">
@@ -85,6 +83,7 @@
                     <div class="copyables choosables">What's going on?</div>/
                     <div class="copyables choosables">Tell me more about</div>
                     <div class="manuals">issue</div>
+                    <div class="copyables choosables">.</div>
                 </p>
 
                 <h3>Reflecting</h3>
@@ -160,7 +159,7 @@
                 <h2>Assess</h2>
 
                 <label for="aat">
-                <h3>Ask About Thoughts</h3>
+                <h3>Thoughts</h3>
                 <p>
                     <div class="copyables">I'm hearing that this has been a difficult time for you, with</div>
                     <div class="manuals">issues</div>
@@ -170,7 +169,7 @@
                 <input type="radio" name="assessSafetyBug" id="aat" />
 
                 <label for="aah">
-                <h3>Ask About Harm</h3>
+                <h3>Harm</h3>
                 <p>
                     <div class="copyables choosables">Okay.</div> /
                     <div class="copyables choosables">Thank you for letting me know.</div> /
@@ -219,20 +218,17 @@
                     </em>
                 </p>
 
-                <h2 id="assessFully">Assess Fully</h2>
+                <h2 id="assessFully">Full Assessment</h2>
                 
                 <label for="means">
-                    <h3>Ask about Means</h3>
+                    <h3>Means</h3>
                     <p>
                         <div class="copyables">Lots of people deal with these thoughts, and I want you to know that you're not alone. I'm wondering, how are you thinking of killing yourself?</div>
                     </p>
                 </label>
                 <input type="radio" name="assessSafetyBug" id="means"/>
-
-
                 
                 <label for="meansAccessible1">
-                    <h3>Assess Accessibility</h3>
                     <i>If contact has means in mind.</i>
                 
                     <p>
@@ -314,37 +310,6 @@
                     </p>
                 </label>
                 <input type="radio" name="assessSafetyBug" id="when"/>
-
-                <label for="howLong">
-                    <h3>How Long?</h3>
-                    <p>
-                        <div class="copyables">It can be so hard to deal with those thoughts. How long have you been feeling this way?</div>
-                    </p>
-                    <p>
-                        <div class="copyables">Got it. It seems like things have been incredibly stressful lately and it makes sense that you've been feeling</div>
-                        <div class="manuals">issues</div>
-                        <div class="copyables">. How long have you been feeling this way?</div>
-                    </p>
-                </label>
-                <input type="radio" name="assessSafetyBug" id="howLong"/>
-
-                <label for="pastAttempts">
-                    <h3>Past Attempts?</h3>
-                    <p>
-                        <div class="copyables">I can imagine it's been really hard, feeling</div>
-                        <div class="manuals">emotions</div>
-                        <div class="copyables">for so long. Have you ever attempted to kill yourself?</div>
-                    </p>
-                </label>
-                <input type="radio" name="assessSafetyBug" id="pastAttempts"/>
-
-                <label for="transitioningOutYes">
-                    <h3>Transitioning Out</h3>
-                    <p>
-                        <div class="copyables">I appreciate you sticking with me. What brought on these thoughts you're having today?</div>
-                    </p>
-                </label>
-                <input type="radio" name="assessSafetyBug" id="transitioningOutYes"/>
 
 
             </div>
@@ -463,7 +428,91 @@
             <div class="stageCards" id="safetyPlanCard">
                 <h2>Safety Plan</h2>
 
-                <h3>Harm Reduction</h3>
+                <p>
+                    <div class="copyables">
+                        You took a big step to keep yourself safe by reaching out today, 
+                    </div>
+                    <div class="manuals">
+                        name
+                    </div>
+                    <div class="copyables">
+                        , and it sounds like these feelings come up for you pretty often
+                    </div>
+                    <div class="copyables">
+                        . How would you feel about coming up with a plan that you can use to help keep safe the next time you're thinking about
+                    </div>
+                    (
+                        <div class="choosables">
+                            suicide
+                        </div>/
+                        <div class="manuals">
+                            harm
+                        </div>
+                    )
+                    <div class="copyables">
+                        ?
+                    </div>
+                </p>
+
+                <h3>Signs</h3>
+
+                <p>
+                    <div class="copyables">
+                        People may notice differences in the way they feel or behave prior to experiencing a crisis. What changes do you notice for yourself that could indicate that you're not doing so well?
+                    </div>
+                </p>
+
+                <p>
+                    <div class="copyables">
+                        You mentioned that you're feeling more
+                    </div>
+                    <div class="manuals">
+                        emotion
+                    </div>
+                    <div class="copyables">
+                        than usual. Does that feel like a sign that you may be experiencing a crisis?
+                    </div>
+                </p>
+
+                <p>
+                    <div class="copyables">
+                        Recognizing how you feel or might behave differently when these thoughts come up can be a helpful way to know when to use a safety plan. What are some things that you notice change for you when you're experiencing a crisis?
+                    </div>
+                </p>
+                
+                <h3>Coping</h3>
+
+                <p>
+                    <div class="copyables">
+                        Earlier you mentioned that you like to
+                    </div>
+                    <div class="manuals">
+                        activity
+                    </div>
+                    <div class="copyables">
+                        . Would you be willing to add that to your safety plan as something you can do when these thoughts come up?
+                    </div>
+                </p>
+
+                <p>
+                    <div class="copyables">
+                        What kinds of things have you tried in the past that have helped you when you're feeling suicidal?
+                    </div>
+                </p>
+
+                <p>
+                    <div class="copyables">
+                        It's okay to not know what to do for yourself. Some common things that help people feel better include drawing, spending time with a pet, listening to music, guided meditation, or exercise. Do any of these stand out as maybe being helpful for you, or something you'd be willing to try?
+                    </div>
+                </p>
+
+                
+
+                
+                
+
+                <!-- some of the following could be useful in gather info -->
+                <h2>integrate some of this into gather info</h2>
 
                 <div class="copyables">It sounds like</div>
                 <div class="manuals">coping mechanism</div>
@@ -538,22 +587,37 @@
             </div>
 
             <div class="stageCards" id="reassessSafetyCard">
+
                 <h2>Risk Reassessment</h2>
-                <i>Only for High and Immediate Risk contacts.</i>
 
-                <h3>Transitioning to Risk Reassessment</h3>
+                <i>Only for high-risk and immediate situations.</i>
 
-                <div class="copyables">Earlier you mentioned your plan to</div>
-                <div class="manuals">plan</div>
-                <div class="copyables">. How are you feeling about that plan now?</div>
+                <p>
+                    <div class="copyables">
+                        Earlier you mentioned your plan to
+                    </div>
+                    <div class="manuals">
+                        plan
+                    </div>
+                    <div class="copyables">
+                        . How are you feeling about that plan now?
+                    </div>
+                </p>
+                
+                <p>
+                    <div class="copyables">
+                        We've been talking for a while, and I want to circle back to when you mentioned earlier that you were planning to 
+                    </div>
+                    <div class="manuals">
+                        plan
+                    </div>
+                    <div class="copyables">
+                        . How are you feeling about that plan now?
+                    </div>
+                </p>
+                
 
-                <br/><br/>
-
-                <div class="copyables">We've been talking for a while, and I want to circle back to when you mentioned earlier that you were planning to </div>
-                <div class="manuals">plan</div>
-                <div class="copyables">. How are you feeling about that plan now?</div>
-
-                <h4>Clarifying</h4>
+                <h3>Clarifying</h3>
                 <div class="copyables">When you say</div>
                 (
                     <div class="copyables choosables">you're fine</div>
@@ -562,10 +626,14 @@
                     /
                     <div class="manuals">reflect language</div>
                 )
-                <div class="copyables">, do you mean that you are no longer planning on following through with the plan we discussed earlier?</div>
+                <div class="copyables">
+                    , do you mean that you are no longer planning on following through with the plan we discussed earlier?
+                </div>
 
-                <h4>Further Clarifying</h4>
-                <div class="copyables">Do you mean that you are no longer planning on following through with the plan we discussed earlier within the next two days?</div>
+                <h3>Further Clarifying</h3>
+                <div class="copyables">
+                    Do you mean that you are no longer planning on following through with the plan we discussed earlier within the next two days?
+                </div>
 
             </div>
 
