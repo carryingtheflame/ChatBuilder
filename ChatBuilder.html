@@ -285,19 +285,25 @@
             padding-bottom: 5em;
         }
 
-        /* Copyable bits of text */ 
-        .copyables{
-            display: inline-block;
-            cursor: pointer;
-            border: 1px dotted CornflowerBlue;
+        /* All the language bits */
+        .copyables, .choosables, .randomables, .manuals{
+            display: inline;
+            line-height: 1.3;
+            user-select: none;
             border-radius: 0.25em;
-            background-color: aliceblue;
+            margin-bottom: 0.0em;
+            margin-right: 0.0em;
+            margin-left: 0.0em;
             padding-left: 0.125em;
             padding-right: 0.125em;
             padding-bottom: 0.125em;
-            user-select: none;
-            margin-bottom: 0.5em;
-            margin-right: 0.125em;
+        }
+
+        /* Copyable bits of text */ 
+        .copyables{
+            cursor: pointer;
+            border: 1px dotted CornflowerBlue;
+            background-color: aliceblue;
         }
 
         /* This is for the quick-copy phrases */
@@ -313,17 +319,9 @@
 
         /* Decorative styling for choosable bits of text */ 
         .choosables{
-            display: inline-block;
             cursor: pointer;
             border: 1px dotted darkorchid;
-            border-radius: 0.25em;
             background-color: lavender;
-            padding-left: 0.125em;
-            padding-right: 0.125em;
-            padding-bottom: 0.125em;
-            user-select: none;
-            margin-bottom: 0.5em;
-            margin-right: 0.125em;
         }
 
         /* This is for the quick-copy phrases */
@@ -339,17 +337,9 @@
         /* Random text pickers */ 
         .randomables{
             font-style:italic;
-            display: inline-block;
             cursor: pointer;
             border: 1px dotted forestgreen;
-            border-radius: 0.25em;
             background-color: honeydew;
-            padding-left: 0.125em;
-            padding-right: 0.125em;
-            padding-bottom: 0.125em;
-            user-select: none;
-            margin-bottom: 0.5em;
-            margin-right: 0.125em;
         }
 
         /* This is for the quick-copy phrases */
@@ -366,17 +356,9 @@
         /* Non-copyable bits of text */ 
         .manuals{
             font-style:italic;
-            display: inline-block;
             cursor: not-allowed;
             border: 1px dotted gray;
-            border-radius: 0.25em;
             background-color: whitesmoke;
-            padding-left: 0.125em;
-            padding-right: 0.125em;
-            padding-bottom: 0.125em;
-            user-select: none;
-            margin-bottom: 0.5em;
-            margin-right: 0.125em;
         }
     </style>
     
@@ -444,7 +426,8 @@
                     <h3>Establish rapport</h3>
                     <p>
                         <div class="copyables">I'm here to listen.</div>
-                        <div class="copyables choosables">What's going on?</div>/
+                        <div class="copyables choosables">What's going on?</div>
+                        /
                         <div class="copyables choosables">Tell me more about</div>
                         <div class="manuals">issue</div>
                         <div class="copyables choosables">.</div>
@@ -452,28 +435,40 @@
 
                     <h3>Reflecting</h3>
                     <p>
-                        <div class="copyables choosables">It sounds like you're feeling</div>/
-                        <div class="copyables choosables">I'm hearing that you're feeling</div>/
-                        <div class="copyables choosables">I can sense that you feel</div>/
-                        <div class="copyables choosables">It seems like</div>/
-                        <div class="copyables choosables">I hear that you've felt</div>/
-                        <div class="copyables choosables">You mentioned</div>/
+                        <div class="copyables choosables">It sounds like you're feeling</div>
+                        /
+                        <div class="copyables choosables">I'm hearing that you're feeling</div>
+                        /
+                        <div class="copyables choosables">I can sense that you feel</div>
+                        /
+                        <div class="copyables choosables">It seems like</div>
+                        /
+                        <div class="copyables choosables">I hear that you've felt</div>
+                        /
+                        <div class="copyables choosables">You mentioned</div>
+                        /
                         <div class="copyables choosables">That does sound like</div> 
                     </p>
 
                     <h3>Normalizing</h3>
                     <p>
-                        <div class="copyables choosables">Lots of people struggle with</div>/
-                        <div class="copyables choosables">Many folks have expressed</div>/
-                        <div class="copyables choosables">You're not alone</div>/
-                        <div class="copyables choosables">It's not unusual to feel</div>/
+                        <div class="copyables choosables">Lots of people struggle with</div>
+                        /
+                        <div class="copyables choosables">Many folks have expressed</div>
+                        /
+                        <div class="copyables choosables">You're not alone</div>
+                        /
+                        <div class="copyables choosables">It's not unusual to feel</div>
+                        /
                         <div class="copyables choosables">Anyone would feel</div>
                     </p>
 
                     <h3>Validating</h3>
                     <p>
-                        <div class="copyables choosables">From what you told me, it makes sense that you would feel</div>/
-                        <div class="copyables choosables">It's okay to feel</div>/
+                        <div class="copyables choosables">From what you told me, it makes sense that you would feel</div>
+                        /
+                        <div class="copyables choosables">It's okay to feel</div>
+                        /
                         <div class="copyables choosables">I can understand why you feel</div>
                     </p>
                     
@@ -794,12 +789,12 @@
 
                     <p>
                         <div class="copyables">
-                            You took a big step to keep yourself safe by reaching out today, 
+                            You took a big step to keep yourself safe by reaching out today,
                         </div>
                         <div class="manuals">
                             name
                         </div>
-                        <div class="copyables">
+                        <div class="choosables">
                             , and it sounds like these feelings come up for you pretty often
                         </div>
                         <div class="copyables">
@@ -854,21 +849,144 @@
                             activity
                         </div>
                         <div class="copyables">
-                            . Would you be willing to add that to your safety plan as something you can do when these thoughts come up?
+                            . What do you think about adding that to your safety plan as something you can do when these thoughts come up?
                         </div>
                     </p>
 
                     <p>
                         <div class="copyables">
-                            What kinds of things have you tried in the past that have helped you when you're feeling suicidal?
+                            What have you tried in the past that have helped you when you're feeling suicidal?
                         </div>
                     </p>
 
                     <p>
                         <div class="copyables">
-                            It's okay to not know what to do for yourself. Some common things that help people feel better include drawing, spending time with a pet, listening to music, guided meditation, or exercise. Do any of these stand out as maybe being helpful for you, or something you'd be willing to try?
+                            It's okay to not know what to do for yourself. Some common things that help people feel better include drawing, spending time with a pet, listening to music, guided meditation, or exercise. What might be helpful for you, or something you'd be willing to try?
                         </div>
                     </p>
+
+                    <h3>Social Distractions</h3>
+
+                    <p>
+                        <div class="copyables">
+                            Sometimes people feel a sense of safety by visiting a place where they feel calm and comforted. What are some spaces or places where you could go when you're feeling
+                        </div>
+                        <div class="manuals">
+                            emotion
+                        </div>
+                        <div class="copyables">
+                            ?
+                        </div>
+                    </p>
+
+                    <p>
+                        <div class="copyables">
+                            Earlier you mentioned
+                        </div>
+                        <div class="manuals">
+                            place
+                        </div>
+                        <div class="copyables">
+                            . How do you feel about going there when you're feeling
+                        </div>
+                        <div class="manuals">
+                            emotion
+                        </div>
+                        <div class="copyables">
+                            ?
+                        </div>
+                    </p>
+
+                    <p>
+                        <div class="copyables">
+                            Who are some people in your life who feel safe and who you trust to reach out to when you're feeling suicidal? You don't have to discuss your feelings or situation with them if you don't want to. It's okay to just talk with someone about other things when you're feeling this way.
+                        </div>
+                    </p>
+
+                    <h3>Social Supports</h3>
+
+                    <p>
+                        <div class="copyables">
+                            Some people might be able to help you keep your mind off of things. It can also be helpful to have someone with whom you can talk about your thoughts and feelings openly.
+                        </div>
+                    </p>
+
+                    <p>
+                        <div class="copyables">
+                            Who might be someone you trust to provide you with support when these thoughts and feelings come up?
+                        </div>
+                    </p>
+
+                    <p>
+                        <div class="copyables">
+                            Earlier you mentioned
+                        </div>
+                        <div class="manuals">
+                            person
+                        </div>
+                        <div class="copyables">
+                            . What would it be like to let them know when you're feeling this way?
+                        </div>
+                    </p>
+
+                    <h3>Professional and Organizational Supports</h3>
+
+                    <p>
+                        <div class="copyables">
+                            Earlier, you mentioned
+                        </div>
+                        <div class="manuals">
+                            professional/organization
+                        </div>
+                        <div class="copyables">
+                            . Would you be open to reaching out to them when you're feeling
+                        </div>
+                        <div class="manuals">
+                            emotion
+                        </div>
+                        <div class="copyables">
+                            ?
+                        </div>
+                    </p>
+
+                    <p>
+                        <div class="copyables">
+                            It's okay to not know who you might reach out to in these situations. How would you feel about reaching out to us for more support when you feel
+                        </div>
+                        <div class="manuals">
+                            emotion
+                        </div>
+                        <div class="copyables">
+                            ?
+                        </div>
+                    </p>
+
+                    <h3>Environment</h3>
+
+                    <p>
+                        <div class="copyables">
+                            For the last part of your safety plan, let's think about ways that you can make your environment safer when you're thinking about
+                        </div>
+                        <div class="manuals">
+                            harm
+                        </div>
+                        <div class="copyables">
+                            .
+                        </div>
+                    </p>
+
+                    <p>
+                        <div class="copyables">
+                            What's something you can do to limit your access to the
+                        </div>
+                        <div class="manuals">
+                            means
+                        </div>
+                        <div class="copyables">
+                            ?
+                        </div>
+                    </p>
+
 
                     
 
